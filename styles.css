@@ -239,6 +239,14 @@ h3 {
     -webkit-text-stroke: 0.5px black; /* Contour */
     margin-bottom: 20px;
 }
+/* Style pour les sous-titres */
+h4 {
+    font-family: 'FairWaterScript', cursive, Arial, sans-serif; /* Police script */
+    font-size: 1.2em; /* Taille */
+    color: #222; /* Couleur sombre */
+    -webkit-text-stroke: 0.5px black; /* Contour */
+    margin-bottom: 20px;
+}
 
 /* Image argentée spécifique */
 .image-argentee {
