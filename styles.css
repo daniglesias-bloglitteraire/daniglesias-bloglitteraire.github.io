@@ -1,10 +1,10 @@
 /* Style général du corps */
 body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* Police de caractères de base */
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* Police de base */
     background-color: #ffffff; /* Fond blanc */
     color: #ddd; /* Couleur du texte gris clair */
     line-height: 1.6; /* Hauteur de ligne pour une meilleure lisibilité */
-    margin: 0; /* Enlève la marge par défaut du corps */
+    margin: 0; /* Supprime la marge par défaut */
     display: flex; /* Utilise Flexbox pour la mise en page */
     flex-direction: column; /* Disposition verticale des éléments */
     min-height: 100vh; /* Hauteur minimale pour couvrir toute la fenêtre */
@@ -16,7 +16,7 @@ header {
     top: 0;
     width: 100%; /* Prend toute la largeur */
     background-color: #141414; /* Couleur sombre proche de Netflix */
-    box-shadow: 0 2px 4px rgba(0,0,0,0.5); /* Ombre pour donner du relief */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.5); /* Ombre pour relief */
     z-index: 1000; /* Position au-dessus des autres éléments */
     padding: 0.5rem 1rem; /* Espacement intérieur */
 }
@@ -145,7 +145,7 @@ ul.submenu li a:hover {
     flex-direction: column; /* Disposition verticale */
     align-items: center; /* Centrer horizontalement */
     padding: 15px; /* Padding intérieur */
-    transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s; /* Transitions pour hover */
+    transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s; /* Transitions au hover */
 }
 
 /* Effet au survol d'une carte */
@@ -222,16 +222,16 @@ footer {
     font-style: normal;
 }
 
-/* Style pour les titres principaux */
+/* Styles pour les titres principaux */
 h1 {
     font-family: 'FairWaterScript', cursive, Arial, sans-serif; /* Police script personnalisée */
     font-size: 3em; /* Taille importante */
     color: #222; /* Couleur sombre */
-    -webkit-text-stroke: 0.5px black; /* Contour noir pour le texte */
+    -webkit-text-stroke: 0.5px black; /* Contour noir */
     margin-bottom: 20px;
 }
 
-/* Style pour les sous-titres */
+/* Styles pour les sous-titres (h3) */
 h3 {
     font-family: 'FairWaterScript', cursive, Arial, sans-serif; /* Police script */
     font-size: 1.5em; /* Taille */
@@ -239,7 +239,8 @@ h3 {
     -webkit-text-stroke: 0.5px black; /* Contour */
     margin-bottom: 20px;
 }
-/* Style pour les sous-titres */
+
+/* Styles pour autres sous-titres (h4) */
 h4 {
     font-family: 'FairWaterScript', cursive, Arial, sans-serif; /* Police script */
     font-size: 1.2em; /* Taille */
@@ -266,14 +267,14 @@ h4 {
 
 /* Styles communs pour tous les boutons sociaux */
 .social-btn {
-    display: flex; /* Flex pour aligner contenu */
+    display: flex; /* Flex pour contenu */
     align-items: center; /* Centrer verticalement */
     padding: 10px 15px; /* Padding intérieur */
     font-size: 16px; /* Taille du texte */
     color: #fff; /* Texte blanc */
     text-decoration: none; /* Pas de soulignement */
     border-radius: 5px; /* Coins arrondis */
-    transition: background-color 0.3s; /* Transition pour hover */
+    transition: background-color 0.3s; /* Transition au hover */
 }
 
 /* Couleurs spécifiques pour chaque plateforme */
@@ -293,14 +294,6 @@ h4 {
 .social-btn i {
     margin-right: 8px; /* Espace entre l'icône et le texte */
     font-size: 20px; /* Taille de l'icône */
-}
-
-/* Formulaire de contact - mise en page centrée avec flexbox */
-body {
-    /* Déjà défini précédemment, répété ici pour contexte */
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
 }
 
 /* Conteneur du formulaire de contact */
@@ -353,7 +346,7 @@ input[type="text"]:focus,
 input[type="email"]:focus,
 textarea:focus {
     border-color: #e50914; /* Bordure rouge */
-    outline: none; /* Pas de contour par défaut */
+    outline: none; /* Pas de contour */
 }
 
 /* Bouton de soumission */
@@ -365,7 +358,7 @@ button {
     border-radius: 4px; /* Coins arrondis */
     font-size: 1em; /* Taille du texte */
     cursor: pointer; /* Curseur pointeur */
-    transition: background-color 0.3s; /* Transition pour hover */
+    transition: background-color 0.3s; /* Transition au hover */
 }
 
 /* Hover sur le bouton */
@@ -376,7 +369,7 @@ button:hover {
 /* Message de confirmation ou erreur */
 .message {
     margin-top: 15px; /* Espace supérieur */
-    text-align: center; /* Centré */
+    text-align: center; /* Centrer */
     font-weight: bold; /* Gras */
 }
 
@@ -388,34 +381,36 @@ button:hover {
     }
 }
 
+/* Styles pour la section liens utiles */
 .links-utiles {
-    display: flex;
-    justify-content: center; /* Centre horizontalement */
-    align-items: center; /* Centre verticalement */
-    gap: 15px;
-    padding: 10px 20px;
+    display: flex; /* Flex pour alignement */
+    justify-content: center; /* Centrer horizontalement */
+    align-items: center; /* Centrer verticalement */
+    gap: 15px; /* Espacement entre liens */
+    padding: 10px 20px; /* Padding intérieur */
     background: #ffffff; /* Fond blanc */
-    width: 100%;
-    box-sizing: border-box;
-    /* Ajout d'une bordure fine pour un effet plus fin */
+    width: 100%; /* Prend toute la largeur */
+    box-sizing: border-box; /* Inclut padding/border dans la largeur */
+    /* Ajoute une bordure fine pour un effet discret */
     border-top: 1px solid #e0e0e0;
     border-bottom: 1px solid #e0e0e0;
-    /* Optionnel : une légère ombre pour donner de la profondeur */
+    /* Légère ombre intérieure pour profondeur */
     box-shadow: inset 0 -1px 0 #e0e0e0, inset 0 1px 0 #e0e0e0;
-    /* Choix d'une police fine et moderne */
+    /* Police fine et moderne */
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    font-weight: 300;
+    font-weight: 300; /* Poids léger */
     font-size: 14px;
-	color: #e50914;
+    color: #e50914; /* Couleur rouge Netflix */
 }
 
+/* Effet hover sur les liens utilitaires */
 .links-utiles :hover {
-color: #b0060f;
+    color: #b0060f; /* Rouge foncé au hover */
 }
 
-/* Autres liens */
+/* Styles pour tous les liens */
 a {
-    text-decoration: none;
+    text-decoration: none; /* Pas de soulignement */
     color: #141414; /* Couleur sombre proche de Netflix */
-    font-family: 'Poppins', Helvetica, Arial, sans-serif;
-}	
+    font-family: 'Poppins', Helvetica, Arial, sans-serif; /* Police moderne */
+}
