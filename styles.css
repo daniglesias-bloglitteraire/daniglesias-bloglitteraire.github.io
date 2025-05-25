@@ -387,3 +387,34 @@ button:hover {
         padding: 20px;
     }
 }
+
+.links-utiles {
+    display: flex;
+    justify-content: center; /* Centre horizontalement */
+    align-items: center; /* Centre verticalement */
+    gap: 15px;
+    padding: 10px 20px;
+    background: #ffffff; /* Fond blanc */
+    width: 100%;
+    box-sizing: border-box;
+    /* Ajout d'une bordure fine pour un effet plus fin */
+    border-top: 1px solid #e0e0e0;
+    border-bottom: 1px solid #e0e0e0;
+    /* Optionnel : une légère ombre pour donner de la profondeur */
+    box-shadow: inset 0 -1px 0 #e0e0e0, inset 0 1px 0 #e0e0e0;
+    /* Choix d'une police fine et moderne */
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+	color: #e50914;
+}
+
+.links-utiles :hover {
+color: #b0060f;
+}
+
+/* Autres liens */
+a {
+    text-decoration: none;
+    color: #141414; /* Couleur sombre proche de Netflix */
+    font-family: 'Poppins', Helvetica, Arial, sans-serif;
