@@ -50,22 +50,23 @@
     </header>
 <div class="contact-container">
     <h2>Contactez-nous</h2>
-    <form id="contactForm" onsubmit="return validateForm()">
-        <label for="name">Nom</label>
-        <input type="text" id="name" name="name" required />
-
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" required />
-
-        <label for="message">Message</label>
-        <textarea id="message" name="message" rows="6" required></textarea>
-
-        <button type="submit">Envoyer</button>
-        <div class="message" id="formMessage"></div>
-    </form>
+    <!-- modify this form HTML and place wherever you want your form -->
+<form
+  action="https://formspree.io/f/mkgrlrwv"
+  method="POST"
+>
+  <label>
+    Email:
+    <input type="email" name="email">
+  </label>
+  <label>
+    Message:
+    <textarea name="message"></textarea>
+  </label>
+  <!-- your other form fields go here -->
+  <button type="submit">Envoyer</button>
+</form>
 </div>
-
-<script src="script.js"></script>
         <footer id="footer">
 		     <p>&copy; 2025 daniglesias.fr.fr Tous droits réservés. Design et contenu crée par le Comité Plume dorée.</p>
 			<!-- Conteneur pour les boutons sociaux -->
