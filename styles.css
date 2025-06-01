@@ -113,7 +113,8 @@ ul.submenu li a:hover {
     width: 100%; /* Assure que la div prend toute la largeur disponible */
     box-sizing: border-box; /* Inclut les marges et paddings dans la largeur totale */
     text-align: center; /* Centrer le texte */
-    margin-bottom: 3rem; /* Espace inférieur */   
+    margin-bottom: 3rem; /* Espace inférieur */
+    padding-top:30px;/* Espace en haut */
 }
 
 .intro h1 {
@@ -359,30 +360,6 @@ button:hover {
     margin-top: 15px; /* Espace supérieur */
     text-align: center; /* Centré */
     font-weight: bold; /* Gras */
-}
-
-/* Lien utile */
-.links-utiles {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
-    padding: 10px 20px;
-    margin-top: 70px; /* augmenté pour positionner plus bas */
-    background:  #d3d3d3;/* gris clair */
-    width: 100%;
-    box-sizing: border-box;
-    border-top: 1px solid #e0e0e0;
-    border-bottom: 1px solid #d0d0d0;
-    box-shadow: inset 0 -1px 0 #e0e0e0, inset 0 1px 0 #e0e0e0;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    font-weight: 300;
-    font-size: 14px;
-    color: #D4AF37;
-}
-
-.links-utiles :hover {
-    color: #A0522D;/* couleur marron rouge au survol */
 }
 
 /* Liens classiques */
