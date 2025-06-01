@@ -1,10 +1,12 @@
 /* Style général du corps */
 body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* Police de base */
+	position: relative;
+    z-index: auto;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* Police de caractères de base */
     background-color: #ffffff; /* Fond blanc */
     color: #ddd; /* Couleur du texte gris clair */
     line-height: 1.6; /* Hauteur de ligne pour une meilleure lisibilité */
-    margin: 0; /* Supprime la marge par défaut */
+    margin: 0; /* Enlève la marge par défaut du corps */
     display: flex; /* Utilise Flexbox pour la mise en page */
     flex-direction: column; /* Disposition verticale des éléments */
     min-height: 100vh; /* Hauteur minimale pour couvrir toute la fenêtre */
@@ -16,11 +18,9 @@ header {
     top: 0;
     width: 100%; /* Prend toute la largeur */
     background-color: #141414; /* Couleur sombre proche de Netflix */
-    box-shadow: 0 2px 4px rgba(0,0,0,0.5); /* Ombre pour relief */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.5); /* Ombre pour donner du relief */
     z-index: 1000; /* Position au-dessus des autres éléments */
     padding: 0.5rem 1rem; /* Espacement intérieur */
-    margin: 0;
-    padding: 0;
 }
 
 /* Menu de navigation */
@@ -30,114 +30,96 @@ nav {
     align-items: center; /* Centrer verticalement */
 }
 
-/* Styles de base pour le menu Netflix */
-.netflix-menu {
-  background-color: #141414; /* Couleur sombre Netflix */
-  font-family: 'Arial', sans-serif;
-  position: fixed; /* Fixe en haut */
-  top: 0;
-  width: 100%;
-  z-index: 999;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+/* Liste du menu */
+ul.menu {
+    list-style: none; /* Supprime les puces */
+    display: flex; /* Disposition horizontale */
+    margin: 0; /* Supprime marges */
+    padding: 0; /* Supprime paddings */
 }
 
-/* Menu principal */
-.netflix-menu .menu {
-  list-style: none; /* Supprimer les puces */
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center; /* Centrer horizontalement */
-  align-items: center;
+/* Éléments du menu */
+ul.menu li {
+    position: relative; /* Nécessaire pour positionner le sous-menu */
+    margin: 0 15px; /* Espacement horizontal entre les items */
 }
 
-/* Items du menu */
-.netflix-menu .menu > li {
-  position: relative; /* pour le submenu */
+/* Liens du menu */
+ul.menu li a {
+    text-decoration: none; /* Pas de soulignement */
+    color: #e50914; /* Rouge Netflix */
+    font-weight: bold; /* Gras */
+    padding: 8px 12px; /* Padding autour du texte */
+    transition: background 0.3s, color 0.3s; /* Transition douce pour hover */
 }
 
-/* Liens du menu - couleur rouge Netflix */
-.netflix-menu .menu > li > a {
-  display: block;
-  padding: 14px 20px;
-  color: #e50914; /* Rouge Netflix */
-  text-decoration: none;
-  font-weight: 500;
-  transition: background 0.3s, border-radius 0.3s; /* Ajout transition pour arrondi */
+/* Hover sur les liens du menu */
+ul.menu li a:hover {
+    background-color: rgba(229, 9, 20, 0.8); /* Fond rouge foncé semi-transparent */
+    border-radius: 4px; /* Coins arrondis */
+    color: #fff; /* Texte en blanc */
 }
 
-/* Survol du lien principal */
-.netflix-menu .menu > li > a:hover {
-  background-color: #e50914; /* Rouge Netflix au survol */
-  border-radius: 8px; /* Arrondi des bords au survol */
-  color: #fff; /* couleur lien en blanc au survol si souhaité */
+/* Sous-menu déroulant */
+ul.menu li ul.submenu {
+    display: none; /* Caché par défaut */
+    position: absolute;
+    top: 30px; /* ajustez cette valeur selon le positionnement souhaité */
+    left: 0;
+    background-color: #222;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 140px; /* largeur initiale */
+    border-radius: 4px;
+    z-index: 1001;
+    transition: width 0.3s ease; /* Ajout de la transition */
 }
 
-/* Style pour les sous-menus */
-.submenu {
-  position: absolute;
-  top: 100%; /* en dessous de l'élément parent */
-  left: 0;
-  background-color: #141414;
-  display: none; /* caché par défaut */
-  min-width: 200px;
-  flex-direction: column;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-  z-index: 999;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
-  list-style: none; /* Supprimer les puces du submenu */
-  border-radius: 6px; /* Arrondi des angles du container du submenu */
+/* Affichage du sous-menu au survol */
+ul.menu li:hover ul.submenu {
+    display: block; /* Affiche le sous-menu */
+	width: 200px; /* nouvelle largeur */
 }
 
-/* Afficher le submenu au hover */
-.netflix-menu .menu > li:hover .submenu {
-  display: flex; /* ou block, ici flex pour colonne */
-  opacity: 1;
-  visibility: visible;
+/* Items du sous-menu */
+ul.submenu li {
+    width: 100%; /* Prend toute la largeur */
 }
 
-/* Items du submenu */
-.submenu li a {
-  padding: 12px 16px;
-  color: #fff;
-  text-decoration: none;
-  transition: background 0.3s, border-radius 0.3s;
-  list-style: none; /* Puces supprimées des éléments de submenu si applicable */
+/* Liens dans le sous-menu */
+ul.submenu li a {
+    padding: 4px 8px; /* augmenter légèrement pour un meilleur confort, ou réduire à 2px */
+    max-width: 180px; /* limite la largeur */
+    display: inline-block; /* pour respecter la largeur max */ /* Transition pour hover */
+	color: #fff; /* couleur blanche pour le texte */
 }
 
-/* Survol du lien dans le submenu */
-.submenu li a:hover {
-  background-color: #e50914; /* Rouge Netflix au survol */
-  border-radius: 8px; /* Arrondi des bords au survol */
-  color: #fff; /* couleur du texte si nécessaire */
+/* Hover sur les liens du sous-menu */
+ul.submenu li a:hover {
+    background-color: rgba(229, 9, 20, 0.8); /* Fond rouge foncé semi-transparent */
+    color: #fff; /* Texte blanc */
 }
 
-/* Pour rendre le menu plus fluide */
-@media (max-width: 768px) {
-  /* Menu responsif si besoin */
-  .netflix-menu .menu {
-    flex-direction: column;
-  }
-  .submenu {
-    position: static;
-    opacity: 1;
-    visibility: visible;
-    box-shadow: none;
-  }
-  /* Espace pour compenser la hauteur du bandeau fixe */
-  .content {
-    padding-top: 140px; /* Espace supérieur pour ne pas cacher le contenu sous le header */
-    max-width: 1200px; /* Largeur maximale du contenu */
+/* container pricipale contient .intro  */
+.content {
     margin: 0 auto; /* Centrage horizontal */
-    padding: 2rem 1rem; /* Padding intérieur */
-  }
-  /* Section présentation principale */
+	width: 100%; /* Assure que la div prend toute la largeur disponible */
+}
 
-  .intro h1 {
-    font-size: 2rem;
-  }
+/* Section présentation contenu dans .content */
+.intro {
+    width: 100%; /* Assure que la div prend toute la largeur disponible */
+    box-sizing: border-box; /* Inclut les marges et paddings dans la largeur totale */
+    text-align: center; /* Centrer le texte */
+    margin-bottom: 3rem; /* Espace inférieur */   
+}
+
+.intro h1 {
+    font-size: 2.5rem; /* Taille du titre */
+    margin-bottom: 1rem; /* Marges en dessous */
+    color: black; /* Couleur noire */
 }
 
 .intro p {
@@ -165,7 +147,7 @@ nav {
     flex-direction: column; /* Disposition verticale */
     align-items: center; /* Centrer horizontalement */
     padding: 15px; /* Padding intérieur */
-    transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s; /* Transitions au hover */
+    transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s; /* Transitions pour hover */
 }
 
 /* Effet au survol d'une carte */
@@ -211,27 +193,6 @@ footer {
     color: #777; /* Gris moyen */
 }
 
-/* Styles pour la responsivité */
-@media(max-width: 768px) {
-    /* Sur petits écrans, la section livres devient verticale */
-    .livres {
-        flex-direction: column;
-        align-items: center;
-    }
-    /* La taille des cartes s'adapte */
-    .card {
-        width: 90%;
-    }
-    /* Adaptation du header */
-    header {
-        padding: 0.5rem 1rem;
-    }
-    /* Taille du titre dans intro */
-    .intro h1 {
-        font-size: 2rem;
-    }
-}
-
 /* Définition d'une police personnalisée */
 @font-face {
     font-family: 'FairWaterScript';
@@ -242,36 +203,32 @@ footer {
     font-style: normal;
 }
 
-/* Styles pour les titres principaux */
+/* Style pour les titres principaux */
 h1 {
     font-family: 'FairWaterScript', cursive, Arial, sans-serif; /* Police script personnalisée */
     font-size: 3em; /* Taille importante */
     color: #222; /* Couleur sombre */
-    -webkit-text-stroke: 0.5px black; /* Contour noir */
+    -webkit-text-stroke: 0.5px black; /* Contour noir pour le texte */
     margin-bottom: 20px;
-	text-align: center;
 }
 
-/* Styles pour les sous-titres (h3) */
+/* Style pour les sous-titres */
 h3 {
     font-family: 'FairWaterScript', cursive, Arial, sans-serif; /* Police script */
     font-size: 1.5em; /* Taille */
     color: #222; /* Couleur sombre */
     -webkit-text-stroke: 0.5px black; /* Contour */
     margin-bottom: 20px;
-	text-align: center;
 }
 
-/* Styles pour autres sous-titres (h4) */
+/* Style pour les petits titres */
 h4 {
     font-family: 'FairWaterScript', cursive, Arial, sans-serif; /* Police script */
     font-size: 1.2em; /* Taille */
     color: #222; /* Couleur sombre */
     -webkit-text-stroke: 0.5px black; /* Contour */
     margin-bottom: 20px;
-	text-align: center
 }
-
 /* Image argentée spécifique */
 .image-argentee {
     border: 4px solid silver; /* Bordure argentée */
@@ -290,14 +247,14 @@ h4 {
 
 /* Styles communs pour tous les boutons sociaux */
 .social-btn {
-    display: flex; /* Flex pour contenu */
+    display: flex; /* Flex pour aligner contenu */
     align-items: center; /* Centrer verticalement */
     padding: 10px 15px; /* Padding intérieur */
     font-size: 16px; /* Taille du texte */
     color: #fff; /* Texte blanc */
     text-decoration: none; /* Pas de soulignement */
     border-radius: 5px; /* Coins arrondis */
-    transition: background-color 0.3s; /* Transition au hover */
+    transition: background-color 0.3s; /* Transition pour hover */
 }
 
 /* Couleurs spécifiques pour chaque plateforme */
@@ -317,6 +274,14 @@ h4 {
 .social-btn i {
     margin-right: 8px; /* Espace entre l'icône et le texte */
     font-size: 20px; /* Taille de l'icône */
+}
+
+/* Formulaire de contact - mise en page centrée avec flexbox */
+body {
+    /* Déjà défini précédemment, répété ici pour contexte */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 /* Conteneur du formulaire de contact */
@@ -369,7 +334,7 @@ input[type="text"]:focus,
 input[type="email"]:focus,
 textarea:focus {
     border-color: #e50914; /* Bordure rouge */
-    outline: none; /* Pas de contour */
+    outline: none; /* Pas de contour par défaut */
 }
 
 /* Bouton de soumission */
@@ -381,7 +346,7 @@ button {
     border-radius: 4px; /* Coins arrondis */
     font-size: 1em; /* Taille du texte */
     cursor: pointer; /* Curseur pointeur */
-    transition: background-color 0.3s; /* Transition au hover */
+    transition: background-color 0.3s; /* Transition pour hover */
 }
 
 /* Hover sur le bouton */
@@ -392,16 +357,8 @@ button:hover {
 /* Message de confirmation ou erreur */
 .message {
     margin-top: 15px; /* Espace supérieur */
-    text-align: center; /* Centrer */
+    text-align: center; /* Centré */
     font-weight: bold; /* Gras */
-}
-
-/* Responsive pour petits écrans */
-@media (max-width: 600px) {
-    /* Réduction du padding du conteneur */
-    .contact-container {
-        padding: 20px;
-    }
 }
 
 /* Lien utile */
@@ -433,3 +390,177 @@ a {
     text-decoration: none;
     color: #4B3832;
 }
+
+/* Style pour le bouton burger */
+.burger-menu {
+  width: 30px;
+  height: 25px;
+  cursor: pointer;
+  display: none; /* Masqué sur grand écran, visible en mobile */
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 1001; /* Au-dessus du menu */
+}
+.burger-menu .bar {
+  height: 3px;
+  background-color: #fff; /* Couleur blanc ou selon votre thème */
+  border-radius: 2px;
+  width: 100%;
+  transition: 0.3s;
+}
+
+
+/* ------------------------------------------- FIN DES STYLES GLOBAUX ------------------------------------------- */
+
+/* =========================== STYLES RESPONSIVE =========================== */
+
+
+/* Responsive pour petits écrans */
+@media (max-width: 600px) {
+    /* Réduction du padding du conteneur */
+    .contact-container {
+        padding: 20px;
+    }
+}
+/* Styles pour la responsivité */
+@media(max-width: 768px) {
+    /* Sur petits écrans, la section livres devient verticale */
+    .livres {
+        flex-direction: column;
+        align-items: center;
+    }
+    /* La taille des cartes s'adapte */
+    .card {
+        width: 90%;
+    }
+    /* Adaptation du header */
+    header {
+        padding: 0.5rem 1rem;
+    }
+    /* Taille du titre dans intro */
+    .intro h1 {
+        font-size: 2rem;
+    }
+}
+
+/* Afficher le burger sur mobile */
+@media (max-width: 768px) {
+  .burger-menu {
+    display: flex;
+  }
+  /* Masquer le menu par défaut sur mobile */
+.menu-container {
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 300px;
+    background-color: rgba(0, 0, 0, 0.95);
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000;
+    padding-top: 60px; /* espace pour le burger */
+  }
+
+  /* Menu visible quand actif */
+  .menu-container.active {
+    transform: translateX(0);
+  }
+
+  /* Style du menu (liens, etc.) */
+  .netflix-menu .menu {
+    list-style: none;
+    padding: 0 20px;
+    margin: 0;
+  }
+  .netflix-menu .menu li {
+    margin: 20px 0;
+  }
+  .netflix-menu .menu li a {
+    color: #fff;
+    font-size: 1.2em;
+    text-decoration: none;
+  }
+  #burger {
+    position: fixed;
+    top: 15px;
+    right: 20px;
+    display: flex;!important; /* pour s'assurer qu'il s'affiche */
+  }
+  .menu {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+  }
+
+  /* Espacement entre liens */
+  .menu li {
+    margin: 20px 0;
+  }
+
+
+  /* Rendre le sous-menu visible en mobile (si besoin) */
+  ul.submenu {
+    position: absolute;
+    top: 0px; /* position 20px en dessous du header */
+    right: 60px; /* 20px du bord droit */
+    width: 200px; /* ou ajustez selon besoin */
+    background-color: #222; /* ou autre couleur si nécessaire */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+    display: none; /* ou block si vous souhaitez qu'il soit toujours visible */
+    z-index: 1002;	
+    color: #fff; /* couleur blanche pour le texte */
+  }
+   /* cache le menu principal dans header */
+  .menu-container {
+    display: none;
+  }
+
+  /* affiche le burger */
+  .burger-menu {
+    display: flex !important;
+    position: fixed;
+    top: 15px;
+    right: 20px;
+    width: 35px;
+    height: 30px;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    cursor: pointer;
+    z-index: 9999; /* très élevé pour être sûr qu'il est au-dessus */
+    background: transparent;
+  }
+  
+  /* Les barres du burger, plus épaisses et visibles */
+  .burger-menu .bar {
+    height: 4px;
+    width: 100%;
+    background-color: #fff;
+    border-radius: 2px;
+    transition: 0.3s;
+  }
+  /* menu déroulant en dehors, positionné */
+  .menu-drawer {
+    position: absolute;
+    top: calc(100% + 20px);
+    right: 20px;
+    width: 250px;
+    background-color: #222;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+    display: none;
+    border-radius: 4px;
+    z-index: 1002;
+  }
+
+  .menu-drawer.active {
+    display: block;
+  }
+  header {
+    height: 40px;
+    line-height: 40px;
+    display: flex;
+    align-items: center;
+  } 
+}
+
