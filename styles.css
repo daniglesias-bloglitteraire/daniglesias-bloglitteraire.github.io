@@ -389,7 +389,7 @@ a {
 #scrollButtons {
   background-color: transparent !important;
   position: fixed;
-  right: 20px;
+  right: 0px;
   bottom: 20px;
   display: flex;
   flex-direction: column;
@@ -401,7 +401,7 @@ a {
 .scroll-btn {
   background-color: transparent !important;
   border: none;
-  padding: 10px;
+  padding: 0px;
   border-radius: 5px;
   cursor: pointer;
   display: flex;
