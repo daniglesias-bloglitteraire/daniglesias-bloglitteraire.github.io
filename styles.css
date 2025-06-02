@@ -431,6 +431,16 @@ a {
 }
 /* Styles pour la responsivité */
 @media(max-width: 768px) {
+	body {
+    /* Déjà défini précédemment, répété ici pour contexte */
+    font-size: 1rem;
+	line-height:1.6;
+}
+
+/* Section présentation contenu dans .content */
+.intro {
+    padding:1rem;
+}
     /* Sur petits écrans, la section livres devient verticale */
     .livres {
         flex-direction: column;
@@ -439,6 +449,7 @@ a {
     /* La taille des cartes s'adapte */
     .card {
         width: 90%;
+		padding:1rem;
     }
     /* Adaptation du header */
     header {
@@ -448,10 +459,8 @@ a {
     .intro h1 {
         font-size: 2rem;
     }
-}
 
 /* Afficher le burger sur mobile */
-@media (max-width: 768px) {
   .burger-menu {
     display: flex;
   }
@@ -568,6 +577,12 @@ a {
     line-height: 40px;
     display: flex;
     align-items: center;
-  } 
+  }
+
+/* Footer pour qu'il prenne toute la largeur même avec padding du body */
+footer {
+    text-align: center;
+	font-size: 0.8rem; /* Taille réduite pour petits écrans */	
+}
 }
 
