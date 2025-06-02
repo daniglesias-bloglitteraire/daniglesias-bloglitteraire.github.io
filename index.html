@@ -135,6 +135,15 @@
                        Plongez dans un thriller psychologique où la vérité est une illusion, l'innocence une prison, et la folie, la seule issue.</p>
                 </div>
             </div>
+			<!-- Boutons ascenceur-->
+<div id="scrollButtons">
+  <button id="scrollTop" class="scroll-btn">
+    <img src="images/haut.png" alt="Haut">
+  </button>
+  <button id="scrollBottom" class="scroll-btn">
+    <img src="images/bas.png" alt="Bas">
+  </button>
+</div>
         </section>
     </div>
 
@@ -152,7 +161,16 @@
                 <i class="fab fa-twitter"></i>Twitter
               </a>
             </div>
+			
     </footer>
+	<script>
+  document.getElementById('scrollTop').addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'auto' });
+  });
+  document.getElementById('scrollBottom').addEventListener('click', () => {
+    window.scrollTo({ top: document.body.scrollHeight, behavior: 'auto' });
+  });
+</script>
 	<script>
   document.addEventListener('DOMContentLoaded', () => {
   const burger = document.getElementById('burger');

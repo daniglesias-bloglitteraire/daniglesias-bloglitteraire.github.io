@@ -385,7 +385,37 @@ a {
   width: 100%;
   transition: 0.3s;
 }
+/* Style pour le bouton ascenseur */
+#scrollButtons {
+  background-color: transparent !important;
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 1000;
+}
 
+/* Style pour chaque bouton ascenseur */
+.scroll-btn {
+  background-color: transparent !important;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s;
+}
+
+/* Si vous souhaitez que le contenu soit une image uniquement */
+.scroll-btn img {
+  max-width: 60px;
+  max-height: 60px;
+  display: block;
+}
 
 /* ------------------------------------------- FIN DES STYLES GLOBAUX ------------------------------------------- */
 
