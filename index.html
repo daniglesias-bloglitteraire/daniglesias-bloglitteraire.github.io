@@ -29,17 +29,28 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Bandeau fixe en haut -->
     <header>
-	    <!-- Bouton burger -->
-  <div class="burger-menu" id="burger" aria-label="Menu" role="button" tabindex="0">
-    <div class="bar"></div>
-    <div class="bar"></div>
-    <div class="bar"></div>
-  </div>
-     <!-- Menu -->
-        <nav>            
-  <div class="menu-drawer" id="menuDrawer">
+	    <!-- ==========================
+         Bandeau fixe en haut
+         ========================== -->
+    <div class="bandeau">
+        <!-- ==========================
+             Bouton burger
+             ========================== -->
+        <div class="burger-menu" id="burger" aria-label="Menu" role="button" tabindex="0">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <!-- ==========================
+             Menu déroulant
+             ========================== -->
+        <nav>
+            <div class="menu-drawer" id="menuDrawer" aria-hidden="true">
+    <!-- Croix de fermeture -->
+    <div class="close-cross" id="closeCross" aria-label="Fermer le menu" role="button" tabindex="0">
+        <img src="images/croix.png" alt="Fermer" class="croix-image">
+    </div>
     <ul class="menu">
       <li><a href="index.html">Accueil</a></li>
       <li>
@@ -79,7 +90,7 @@
         </section>
 
         <!-- Section livres -->
-        <section id="livres" class="livres">
+     <section class="livres-alignées">
             <!-- Livre 1 -->
             <div class="card" id="livre1">
                 <img src="images/overdose_d_amour.png" alt="Overdose d'amour" class="image-argentee" />
@@ -192,6 +203,7 @@
                        Plongez dans un thriller psychologique où la vérité est une illusion, l'innocence une prison, et la folie, la seule issue.</p>
                 </div>
             </div>
+	 </section><!-- fin section livres alignés-->	
 			<!-- Boutons ascenceur-->
 <div id="scrollButtons">
   <button id="scrollTop" class="scroll-btn">
@@ -203,22 +215,26 @@
 </div>
         </section>
     </div>
-
     <!-- Pied de page -->
         <footer id="footer">
-		     <p>&copy; 2025 daniglesias-bloglitteraire.github.io<br> Tous droits réservés. Design et contenu crée par le Comité de l'encrier d'or.</p>
+		     <p>&copy; 2025 daniglesias-bloglitteraire.github.io<br>Tous droits réservés. Design et contenu crée par<br><i>le Comité de l'encrier d'or.</i></p>
 			<!-- Conteneur pour les boutons sociaux -->
-            <div class="social-buttons"
-              <!-- Bouton Facebook -->
-              <a class="social-btn facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Foffrirunehistoire.onlinewebshop.net%2F" target="_blank" rel="noopener noreferrer">
-                <i class="fab fa-facebook-f"></i>Facebook
-              </a>
-              <!-- Bouton Twitter -->
-              <a class="social-btn twitter" href="https://twitter.com/intent/tweet?text=Découvrez%20ce%20site%20fantastique%20https%3A%2F%2Foffrirunehistoire.onlinewebshop.net%2F" target="_blank" rel="noopener noreferrer">
-                <i class="fab fa-twitter"></i>Twitter
-              </a>
-            </div>
-			
+            <div class="social-buttons">
+  <!-- Bouton Facebook -->
+  <a class="social-btn facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Foffrirunehistoire.onlinewebshop.net%2F" target="_blank" rel="noopener noreferrer">
+    F
+  </a>
+
+  <!-- Bouton X (Twitter) -->
+  <a class="social-btn x" href="https://twitter.com/intent/tweet?text=Découvrez%20ce%20site%20fantastique%20https%3A%2F%2Foffrirunehistoire.onlinewebshop.net%2F" target="_blank" rel="noopener noreferrer">
+    X
+  </a>
+  
+  <!-- Bouton validation W3C -->
+  <a class="social-btn validation" href="https://validator.w3.org/nu/?doc=https%3A%2F%2Fwww.daniglesias-bloglitteraire.github.io/index.html" target="_blank" rel="noopener noreferrer" aria-label="Valider le site W3C">
+    ✓
+  </a>
+</div>			
     </footer>
 	<script>
   document.getElementById('scrollTop').addEventListener('click', () => {
@@ -229,20 +245,42 @@
   });
 </script>
 	<script>
-  document.addEventListener('DOMContentLoaded', () => {
-  const burger = document.getElementById('burger');
-  const menuDrawer = document.getElementById('menuDrawer');
+	document.addEventListener('DOMContentLoaded', () => {
+    const burger = document.getElementById('burger');
+    const menuDrawer = document.getElementById('menuDrawer');
+    const closeCross = document.getElementById('closeCross');
 
-  burger.addEventListener('click', () => {
-    menuDrawer.classList.toggle('active');
-  });
+    // Toggle le menu avec burger
+    burger.addEventListener('click', () => {
+        menuDrawer.classList.toggle('active');
+        menuDrawer.setAttribute('aria-hidden', String(!menuDrawer.classList.contains('active')));
+    });
 
-  // Fermer si clic en dehors
-  document.addEventListener('click', (e) => {
-    if (!menuDrawer.contains(e.target) && !burger.contains(e.target)) {
-      menuDrawer.classList.remove('active');
-    }
-  });
+    // Ouvrir/fermer avec clic sur croix
+    closeCross.addEventListener('click', () => {
+        // Ajouter la classe pour animation de rotation
+        closeCross.classList.add('rotating');
+
+        // Lance l'animation
+        closeCross.classList.add('rotating');
+
+        // Lors de la fin de l'animation, fermer le menu
+        closeCross.addEventListener('animationend', () => {
+            // Retirer la classe d'animation pour réinitialiser
+            closeCross.classList.remove('rotating');
+            // Fermer le menu
+            menuDrawer.classList.remove('active');
+            menuDrawer.setAttribute('aria-hidden', 'true');
+        }, { once: true });
+    });
+
+    // Fermer si clic en dehors
+    document.addEventListener('click', (e) => {
+        if (!menuDrawer.contains(e.target) && !burger.contains(e.target)) {
+            menuDrawer.classList.remove('active');
+            menuDrawer.setAttribute('aria-hidden', 'true');
+        }
+    });
 });
 </script>
 </body>
