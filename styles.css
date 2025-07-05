@@ -114,7 +114,6 @@ ul.submenu li a:hover {
 .intro {
     width: 100%; /* Assure que la div prend toute la largeur disponible */
     box-sizing: border-box; /* Inclut les marges et paddings dans la largeur totale */
-    text-align: center; /* Centrer le texte */
     margin-bottom: 3rem; /* Espace inférieur */
     padding-top:30px;/* Espace en haut */
 }
@@ -123,6 +122,15 @@ ul.submenu li a:hover {
     font-size: 2.5rem; /* Taille du titre */
     margin-bottom: 1rem; /* Marges en dessous */
     color: black; /* Couleur noire */
+	text-align: center; /* Centrer le texte */	
+}
+
+.intro h3 {
+    text-align: center; /* Centrer le texte */	
+}
+
+.intro h4 {
+    text-align: center; /* Centrer le texte */	
 }
 
 .intro p {
@@ -130,6 +138,7 @@ ul.submenu li a:hover {
     max-width: 800px; /* Largeur maximale */
     margin: 0 auto 1.5rem; /* Centré avec marge inférieure */
     color: black; /* Couleur noire */
+	text-align: justify; /* Justifier le texte */
 }
 
 .card {
