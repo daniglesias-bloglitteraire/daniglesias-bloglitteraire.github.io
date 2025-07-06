@@ -744,6 +744,12 @@ a {
   .livres-alignées {
     grid-template-columns: 1fr;
   }
+  
+  .intro {
+    margin: 0 !important;
+    padding-left: 26px;
+    padding-right: 26px;
+}
 }
 
 /* Styles pour les écrans à partir de 769px (desktop) */
