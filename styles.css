@@ -200,10 +200,19 @@ ul.submenu li a:hover {
 
 /* Titre dans la description */
 .description h3 {
-    font-size: 2.2rem; /* Taille importante */
-    margin-bottom: 0.5rem; /* Marge inférieure pour espacer */
-    color: #fff; /* Couleur blanche */
-    text-align: center; /* Centrage */
+    font-family: 'Anton', sans-serif; /* Police très impactante */
+    font-size: 1.4rem; /* Taille plus grande pour un titre */
+    margin-bottom: 1rem;
+    color: #ffffff; /* Blanc */
+    text-align: center;
+    /* Halo rouge lumineux et intense réduit */
+    text-shadow:
+        4px 4px 4px rgba(0, 0, 0, 0.7), /* Ombre pour la profondeur */
+        0 0 15px #E50914, /* Halo lumineux rouge réduit */
+        0 0 20px #E50914, /* Halo supplémentaire réduit */
+        0 0 30px #E50914; /* Très lumineux mais moins étendu */
+    letter-spacing: 4px;
+    font-weight: bold;
 }
 
 /* Paragraphe dans la description */
@@ -625,46 +634,59 @@ a {
     }
     ul.submenu li a {
         display: block !important;
-        width: 100% !important;
+        width: 80% !important;
         padding: 8px 8px !important;
         text-align: left !important;
     }
 
         /* Menu vertical mobile (dans le menu principal) */
     .menu {
-        display: flex;
         flex-direction: column;
-        padding: 0;
+        padding-left: 5px !important;
         margin: 0;
-        background-color: #141414;
+        background-color: #222; /* Fond gris foncé pour le sous-menu */
         width: 100%;
         transition: all 0.3s ease;   
         display: none;/* Menu mobile caché par défaut */
 		text-align: left !important;
     }
-	
+			
 	    /* Sous-menu mobile (déroutant vers la droite) */
     ul.submenu {
-        position: absolute;
-        top: 0;
-        right: 60px;
-        width: 200px;
-        background-color: #141414;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.5);
-        display: none;
-        z-index: 1002;
-    }
+    display: none; /* Cacher par défaut */
+    position: absolute; /* Positionnement absolu par rapport au parent */
+    top: 30px; /* Position verticale */
+    left: 0; /* Aligné à gauche du parent */
+    background-color: #222; /* Fond gris */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.5); /* Ombre */
+    list-style: none; /* Sans puces */
+    padding: 0; /* Paddings internes */
+    margin: 0; /* Marges */
+    width: 300px; /* Largeur augmentée ici aussi */
+    border-radius: 4px; /* Coins arrondis */
+    z-index: 1001; /* Z-index supérieur */
+    transition: width 0.3s ease, opacity 0.3s ease; /* transitions */
+    opacity: 0; /* Initialement transparent */
+    transform: translateY(-10px); /* Départ en haut */
+} 
 
-    /* Menu actif en mobile */
+    ul.menu li:hover ul.submenu {
+    display: block; /* Affiche le sous-menu */
+    width: 300px; /* Augmentation de la largeur à 300px (ou plus si besoin) */
+    opacity: 1; /* Rendre visible */
+    transform: translateY(0); /* Rétablir la position */
+    transition: width 0.3s ease, opacity 0.3s ease, transform 0.3s ease; /* Transition douce */
+     }
+	 
     .menu.active {
         display: flex;
         position: fixed;
         top: 60px;
-        right: 20px;
+        right: 60px;
         background: white;
         padding: 10px;
         flex-direction: column;
-        width: 250px;
+        width: 300px;
         max-height: calc(100vh - 60px);
         overflow-y: auto;
         z-index: 9998;
@@ -677,8 +699,8 @@ a {
     .menu-drawer {
         position: absolute;
         top: calc(100% + 2px);
-        right: 20px;
-        width: 200px;
+        right: 80px;
+        width: 300px;
         background-color: #5E3200;
         box-shadow: 0 2px 8px rgba(0,0,0,0.5);
         display: none;
@@ -795,6 +817,10 @@ a {
         padding-left: 26px;
         padding-right: 26px;
     }
+	
+	nav {
+    justify-content: flex-start;
+}
 }
 
 /* Styles pour grands écrans (769px et plus) */
