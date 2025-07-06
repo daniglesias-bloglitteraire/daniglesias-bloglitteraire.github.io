@@ -682,11 +682,14 @@ a {
         background-color: #f5f5f5; /* Fond gris clair */
         padding: 40px; /* Padding intérieur */
         border-radius: 10px; /* Coins arrondis */
-        max-width: 500px; /* Largeur maximale */
+        max-width: 500px; /* Limite la largeur maximale de l'élément à 500 pixels, même si la largeur définie est plus grande */
         width: 80%; /* Prend 80% de la largeur du parent */
         box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* Ombre */
-        margin: 80px 40px 40px 40px; /* Marges pour espacement autour */
-    }
+        margin: 80px auto 40px auto; /* Ajoute une marge de 80px en haut, automatique (centrage horizontal) à gauche et à droite, et 40px en bas */
+		padding-left: 20px; /* Ajoute un espace intérieur de 20px à gauche de l'élément */
+        padding-right: 20px; /* Ajoute un espace intérieur de 20px à droite de l'élément */
+		box-sizing: border-box; /* Inclut la largeur et la hauteur des bordures et paddings dans la dimension totale de l'élément */
+    }	
 
     /* Textarea mobile (champ de texte multilignes) */
     textarea {
