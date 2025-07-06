@@ -180,14 +180,14 @@ ul.submenu li a:hover {
 }
 
 .description h3 {
-    font-size: 1.2rem; /* Taille du titre */
+    font-size: 2.2rem; /* Taille du titre */
     margin-bottom: 0.5rem; /* Marges inférieures */
     color: #fff; /* Blanc */
 	text-align: center;
 }
 
 .description p {
-    font-size: 0.95rem; /* Taille du texte */
+    font-size: 1.1rem; /* Taille du texte */
     color: #ccc; /* Gris clair */
 }
 
@@ -219,6 +219,14 @@ h1 {
     color: #222; /* Couleur sombre */
     -webkit-text-stroke: 0.5px black; /* Contour noir pour le texte */
     margin-bottom: 20px;
+}
+
+/* Titre du formulaire */
+h2 {
+    text-align: center; /* Centrer le texte */
+    color: #e50914; /* Rouge Netflix */
+    margin-bottom: 20px; /* Espace inférieur */
+    font-size: 2em; /* Taille du titre */
 }
 
 /* Style pour les sous-titres */
@@ -262,14 +270,6 @@ body {
     width: 100%; /* Prend toute la largeur disponible */
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Ombre légère */
     margin: 80px auto 0 auto; /* Centrage horizontal, marge en haut */
-}
-
-/* Titre du formulaire */
-h2 {
-    text-align: center; /* Centrer le texte */
-    color: #e50914; /* Rouge Netflix */
-    margin-bottom: 20px; /* Espace inférieur */
-    font-size: 2em; /* Taille du titre */
 }
 
 /* Forme de la zone de saisie */
