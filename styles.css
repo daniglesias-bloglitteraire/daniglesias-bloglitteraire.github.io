@@ -221,11 +221,15 @@ footer {
 
 /* Style pour les titres principaux (h1) */
 h1 {
-    font-family: 'FairWaterScript', cursive, Arial, sans-serif; /* Police script pour h1 */
-    font-size: 3em; /* Grande taille de police */
+    font-family: 'FairWaterScript', cursive, Arial, sans-serif; /* Police script pour h1, fallback à cursive, Arial, puis sans-serif */
+    font-size: 3em; /* Grande taille de police pour un titre principal */
     color: #222; /* Couleur gris foncé */
-    -webkit-text-stroke: 0.5px black; /* Contour noir pour le texte (pour navigateur Webkit) */
-    margin-bottom: 20px; /* Marge en dessous */
+    text-shadow:
+      -1px -1px 0 #000, /* Ombre en haut à gauche */
+       1px -1px 0 #000, /* Ombre en haut à droite */
+      -1px  1px 0 #000, /* Ombre en bas à gauche */
+       1px  1px 0 #000; /* Ombre en bas à droite */
+    margin-bottom: 20px; /* Marge en dessous du titre pour espacer des éléments suivants */
 }
 
 /* Titre du formulaire (h2) */
@@ -241,7 +245,11 @@ h3 {
     font-family: 'FairWaterScript', cursive, Arial, sans-serif; /* Police script */
     font-size: 1.5em; /* Taille de police */
     color: #222; /* Couleur sombre */
-    -webkit-text-stroke: 0.5px black; /* Contour noir (navigateur Webkit) */
+    text-shadow:
+      -1px -1px 0 #000, /* Ombre en haut à gauche */
+       1px -1px 0 #000, /* Ombre en haut à droite */
+      -1px  1px 0 #000, /* Ombre en bas à gauche */
+       1px  1px 0 #000; /* Ombre en bas à droite */
     margin-bottom: 20px; /* Marge en dessous */
 }
 
@@ -250,7 +258,11 @@ h4 {
     font-family: 'FairWaterScript', cursive, Arial, sans-serif; /* Police script */
     font-size: 1.2em; /* Taille moyenne */
     color: #222; /* Couleur sombre */
-    -webkit-text-stroke: 0.5px black; /* Contour noir */
+    text-shadow:
+      -1px -1px 0 #000, /* Ombre en haut à gauche */
+       1px -1px 0 #000, /* Ombre en haut à droite */
+      -1px  1px 0 #000, /* Ombre en bas à gauche */
+       1px  1px 0 #000; /* Ombre en bas à droite */
     margin-bottom: 20px; /* Marge en dessous */
 }
 
