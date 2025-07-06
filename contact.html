@@ -5,21 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daniglesias | Blog littéraire - Contact</title>
 
-    <!-- Métadonnées de base pour le référencement et le partage -->
-	<meta name="keywords" content="Daniglesias, Daniel Iglesias, romans policiers français, blog littéraire, blog, polar, écrivain">
+    <!-- Métadonnées pour le référencement et le partage sur réseaux sociaux -->
+    <meta name="keywords" content="Daniglesias, Daniel Iglesias, romans policiers français, blog littéraire, blog, polar, écrivain">
     <meta name="description" content="Daniglesias - Blog littéraire: Découvrez mes 8 livres, mes passions, aventures et actualités littéraires. Plongez dans un univers riche en émotions, découvertes et nouveautés.">
     <meta name="author" content="Daniel Iglesias">
     <meta name="language" content="fr">
     <meta name="theme-color" content="#ffffff">
 
-    <!-- Open Graph / Facebook -->
+    <!-- Open Graph pour partage Facebook -->
     <meta property="og:title" content="Daniglesias-bloglittéraire">
     <meta property="og:description" content="Découvrez mes 8 livres, mes passions, aventures et actualités littéraires. Plongez dans un univers riche en émotions, découvertes et nouveautés.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://daniglesias-bloglitteraire.github.io">
     <meta property="og:image" content="images/og-image.jpg">
-	<meta property="og:image:secure_url" content="https://daniglesias-bloglitteraire.github.io/images/og-image.png">	
-
+    <meta property="og:image:secure_url" content="https://daniglesias-bloglitteraire.github.io/images/og-image.png">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
@@ -27,66 +26,81 @@
     <meta name="twitter:description" content="Découvrez mes 8 livres, mes passions, aventures et actualités littéraires. Plongez dans un univers riche en émotions, découvertes et nouveautés.">
     <meta name="twitter:image" content="images/og-image.jpg">
 
-    <!-- Favicon -->
+    <!-- Favicon du site -->
     <link rel="icon" href="favicon.ico" type="image/x-icon">
 
-    <!-- Feuille de styles -->
+    <!-- Feuille de styles CSS -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Bandeau fixe en haut -->
+    <!-- En-tête fixe en haut de page -->
     <header>
-	    <!-- ==========================
-         Bandeau fixe en haut
-         ========================== -->
-    <div class="bandeau">
-        <!-- ==========================
-             Bouton burger
-             ========================== -->
-        <div class="burger-menu" id="burger" aria-label="Menu" role="button" tabindex="0">
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-        </div>
-        <!-- ==========================
-             Menu déroulant
-             ========================== -->
-        <nav>
-            <div class="menu-drawer" id="menuDrawer" aria-hidden="true">
-    <!-- Croix de fermeture -->
-    <div class="close-cross" id="closeCross" aria-label="Fermer le menu" role="button" tabindex="0">
-        <img src="images/croix.png" alt="Fermer" class="croix-image">
-    </div>
-    <ul class="menu">
-      <li><a href="index.html">Accueil</a></li>
-      <li>
-        <a href="#livres">Livres</a>
-        <ul class="submenu">
-          <li><a href="index.html#livre1">Overdose d'amour</a></li>
-          <li><a href="index.html#livre2">Expérience</a></li>
-          <li><a href="index.html#livre3">Enseigner en saignant</a></li>
-          <li><a href="index.html#livre4">A la mémoire du crime</a></li>
-          <li><a href="index.html#livre5">Tout sauf simple</a></li>
-		  <li><a href="index.html#livre6">Inapte mais debout</a></li>
-          <li><a href="index.html#livre7">A transmettre pour ne pas oublier</a></li>
-          <li><a href="index.html#livre8">Folie de vivre</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="#">A propos</a>
-        <ul class="submenu">
-          <li><a href="qui_suis_je.html">Qui suis-je?</a></li>
-        </ul>
-      </li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </div>
-        </nav>
+        <!-- Bandeau fixe, contenant le menu burger et le menu déroulant -->
+        <div class="bandeau">
+            <!-- ==========================
+                 Bouton burger pour menu mobile
+                 ========================== -->
+            <div class="burger-menu" id="burger" aria-label="Menu" role="button" tabindex="0">
+                <!-- Les trois barres du menu burger -->
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div> <!-- fin du burger-menu -->
+
+            <!-- ==========================
+                 Menu déroulant (drawer)
+                 ========================== -->
+            <nav>
+                <!-- Conteneur du menu déroulant, initialement masqué (aria-hidden="true") -->
+                <div class="menu-drawer" id="menuDrawer" aria-hidden="true">
+                    <!-- Croix de fermeture du menu (clic pour fermer) -->
+                    <div class="close-cross" id="closeCross" aria-label="Fermer le menu" role="button" tabindex="0">
+                        <img src="images/croix.png" alt="Fermer" class="croix-image">
+                    </div> <!-- fin de close-cross -->
+
+                    <!-- Liste du menu principal -->
+                    <ul class="menu">
+                        <li>
+                            <a href="index.html">Accueil</a>
+                        </li>
+
+                        <!-- Menu "Livres" avec sous-menu -->
+                        <li>
+                            <a href="#livres">Livres</a>
+                            <ul class="submenu">
+                                <li><a href="index.html#livre1">Overdose d'amour</a></li>
+                                <li><a href="index.html#livre2">Expérience</a></li>
+                                <li><a href="index.html#livre3">Enseigner en saignant</a></li>
+                                <li><a href="index.html#livre4">A la mémoire du crime</a></li>
+                                <li><a href="index.html#livre5">Tout sauf simple</a></li>
+                                <li><a href="index.html#livre6">Inapte mais debout</a></li>
+                                <li><a href="index.html#livre7">A transmettre pour ne pas oublier</a></li>
+                                <li><a href="index.html#livre8">Folie de vivre</a></li>
+                            </ul> <!-- fin du sous-menu livres -->
+                        </li>
+
+                        <!-- Menu "A propos" avec sous-menu -->
+                        <li>
+                            <a href="#">A propos</a>
+                            <ul class="submenu">
+                                <li><a href="qui_suis_je.html">Qui suis-je?</a></li>
+                            </ul> <!-- fin du sous-menu A propos -->
+                        </li>
+
+                        <!-- Lien contact -->
+                        <li>
+                            <a href="contact.html">Contact</a>
+                        </li>
+                    </ul> <!-- fin de la liste principale -->
+                </div> <!-- fin de menu-drawer -->
+            </nav>
+        </div> <!-- fin de bandeau -->
     </header>
 
+    <!-- Section de contact -->
     <div class="contact-container">
         <h2>Contactez-nous</h2>
-        <!-- Formulaire de contact -->
+        <!-- Formulaire de contact, envoi via Formspree -->
         <form action="https://formspree.io/f/manogojz" method="POST">
             <label>
                 Email:
@@ -96,69 +110,78 @@
                 Message:
                 <textarea name="message"></textarea>
             </label>
-            <!-- autres champs si nécessaires -->
+            <!-- Bouton d'envoi -->
             <button type="submit">Envoyer</button>
         </form>
-    </div>
-<!-- Pied de page -->
-        <footer id="footer">		     
-			<!-- Conteneur pour les boutons sociaux -->
-            <div class="social-buttons">
-  <!-- Bouton Facebook -->
-  <a class="social-btn facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdaniglesias-bloglitteraire.github.io%2F" target="_blank" rel="noopener noreferrer">
-    F
-  </a>
+    </div> <!-- fin de contact-container -->
 
-  <!-- Bouton X (Twitter) -->
-  <a class="social-btn x" href="https://twitter.com/intent/tweet?text=Découvrez%20ce%20site%20fantastique%20https%3A%2F%2Fdaniglesias-bloglitteraire.github.io%2F" target="_blank" rel="noopener noreferrer">
-    X
-  </a>
-  
-  <!-- Bouton validation W3C -->
-  <a class="social-btn validation" href="https://validator.w3.org/nu/?doc=https%3A%2F%2Fdaniglesias-bloglitteraire.github.io/contact.html" target="_blank" rel="noopener noreferrer" aria-label="Valider le site W3C">
-    ✓
-  </a>
-</div>	
-<p>&copy; 2025 daniglesias-bloglitteraire.github.io<br>Tous droits réservés. Design et contenu crée par<br><i>le Comité de l'encrier d'or.</i></p>		
-    </footer>
-	<script>
-	document.addEventListener('DOMContentLoaded', () => {
-    const burger = document.getElementById('burger');
-    const menuDrawer = document.getElementById('menuDrawer');
-    const closeCross = document.getElementById('closeCross');
+    <!-- Pied de page -->
+    <footer id="footer">
+        <!-- Conteneur pour les boutons sociaux -->
+        <div class="social-buttons">
+            <!-- Bouton Facebook -->
+            <a class="social-btn facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdaniglesias-bloglitteraire.github.io%2F" target="_blank" rel="noopener noreferrer">
+                F
+            </a>
 
-    // Toggle le menu avec burger
-    burger.addEventListener('click', () => {
-        menuDrawer.classList.toggle('active');
-        menuDrawer.setAttribute('aria-hidden', String(!menuDrawer.classList.contains('active')));
-    });
+            <!-- Bouton Twitter (X) -->
+            <a class="social-btn x" href="https://twitter.com/intent/tweet?text=Découvrez%20ce%20site%20fantastique%20https%3A%2F%2Fdaniglesias-bloglitteraire.github.io%2F" target="_blank" rel="noopener noreferrer">
+                X
+            </a>
 
-    // Ouvrir/fermer avec clic sur croix
-    closeCross.addEventListener('click', () => {
-        // Ajouter la classe pour animation de rotation
-        closeCross.classList.add('rotating');
+            <!-- Bouton validation W3C -->
+            <a class="social-btn validation" href="https://validator.w3.org/nu/?doc=https%3A%2F%2Fdaniglesias-bloglitteraire.github.io/contact.html" target="_blank" rel="noopener noreferrer" aria-label="Valider le site W3C">
+                ✓
+            </a>
+        </div> <!-- fin de social-buttons -->
 
-        // Lance l'animation
-        closeCross.classList.add('rotating');
+        <!-- Informations de copyright -->
+        <p>
+            &copy; 2025 daniglesias-bloglitteraire.github.io<br>
+            Tous droits réservés. Design et contenu crée par<br>
+            <i>le Comité de l'encrier d'or.</i>
+        </p>
+    </footer> <!-- fin du footer -->
 
-        // Lors de la fin de l'animation, fermer le menu
-        closeCross.addEventListener('animationend', () => {
-            // Retirer la classe d'animation pour réinitialiser
-            closeCross.classList.remove('rotating');
-            // Fermer le menu
-            menuDrawer.classList.remove('active');
-            menuDrawer.setAttribute('aria-hidden', 'true');
-        }, { once: true });
-    });
+    <!-- Script pour la gestion du menu burger et du menu déroulant -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const burger = document.getElementById('burger');
+            const menuDrawer = document.getElementById('menuDrawer');
+            const closeCross = document.getElementById('closeCross');
 
-    // Fermer si clic en dehors
-    document.addEventListener('click', (e) => {
-        if (!menuDrawer.contains(e.target) && !burger.contains(e.target)) {
-            menuDrawer.classList.remove('active');
-            menuDrawer.setAttribute('aria-hidden', 'true');
-        }
-    });
-});
-</script>
+            // Lors du clic sur le burger, toggle l'affichage du menu
+            burger.addEventListener('click', () => {
+                // Ajoute ou retire la classe 'active' pour afficher/masquer le menu
+                menuDrawer.classList.toggle('active');
+                // Met à jour l'attribut aria-hidden pour l'accessibilité
+                menuDrawer.setAttribute('aria-hidden', String(!menuDrawer.classList.contains('active')));
+            });
+
+            // Lors du clic sur la croix de fermeture
+            closeCross.addEventListener('click', () => {
+                // Ajoute une classe pour animation de rotation
+                closeCross.classList.add('rotating');
+
+                // Lors de la fin de l'animation
+                closeCross.addEventListener('animationend', () => {
+                    // Retire la classe d'animation pour réinitialiser
+                    closeCross.classList.remove('rotating');
+                    // Ferme le menu en retirant la classe 'active'
+                    menuDrawer.classList.remove('active');
+                    // Met à jour l'attribut aria-hidden
+                    menuDrawer.setAttribute('aria-hidden', 'true');
+                }, { once: true });
+            });
+
+            // Ferme le menu si clic en dehors
+            document.addEventListener('click', (e) => {
+                if (!menuDrawer.contains(e.target) && !burger.contains(e.target)) {
+                    menuDrawer.classList.remove('active');
+                    menuDrawer.setAttribute('aria-hidden', 'true');
+                }
+            });
+        });
+    </script>
 </body>
 </html>

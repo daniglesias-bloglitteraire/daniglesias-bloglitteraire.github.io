@@ -1,164 +1,175 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daniglesias | Blog littéraire - Qui suis-je ?</title>
 
-    <!-- Métadonnées de base pour le référencement et le partage -->
-	<meta name="keywords" content="Daniglesias, Daniel Iglesias, romans policiers français, blog littéraire, blog, polar, écrivain">
+    <!-- Métadonnées pour le référencement et le partage social -->
+    <meta name="keywords" content="Daniglesias, Daniel Iglesias, romans policiers français, blog littéraire, blog, polar, écrivain">
     <meta name="description" content="Daniglesias - Blog littéraire: Découvrez mes 8 livres, mes passions, aventures et actualités littéraires. Plongez dans un univers riche en émotions, découvertes et nouveautés.">
     <meta name="author" content="Daniel Iglesias">
     <meta name="language" content="fr">
     <meta name="theme-color" content="#ffffff">
 
-    <!-- Open Graph / Facebook -->
+    <!-- Métadonnées Open Graph pour le partage sur Facebook -->
     <meta property="og:title" content="Daniglesias-bloglittéraire">
     <meta property="og:description" content="Découvrez mes 8 livres, mes passions, aventures et actualités littéraires. Plongez dans un univers riche en émotions, découvertes et nouveautés.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://daniglesias-bloglitteraire.github.io">
     <meta property="og:image" content="images/og-image.jpg" />
-	<meta property="og:image:secure_url" content="https://daniglesias-bloglitteraire.github.io/images/og-image.png">	
+    <meta property="og:image:secure_url" content="https://daniglesias-bloglitteraire.github.io/images/og-image.png">
 
-
-    <!-- Twitter Card -->
+    <!-- Twitter Card pour le partage sur Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Daniglesias-bloglittéraire">
     <meta name="twitter:description" content="Découvrez mes 8 livres, mes passions, aventures et actualités littéraires. Plongez dans un univers riche en émotions, découvertes et nouveautés.">
     <meta name="twitter:image" content="images/og-image.jpg">
 
-    <!-- Favicon -->
+    <!-- Icône du site -->
     <link rel="icon" href="favicon.ico" type="image/x-icon">
 
-    <!-- Feuille de styles -->
+    <!-- Feuille de styles CSS -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Bandeau fixe en haut -->
+    <!-- En-tête fixe en haut de page -->
     <header>
-	    <!-- ==========================
-         Bandeau fixe en haut
-         ========================== -->
-    <div class="bandeau">
         <!-- ==========================
-             Bouton burger
+             Bandeau fixe en haut
              ========================== -->
-        <div class="burger-menu" id="burger" aria-label="Menu" role="button" tabindex="0">
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-        </div>
-        <!-- ==========================
-             Menu déroulant
-             ========================== -->
-        <nav>
-            <div class="menu-drawer" id="menuDrawer" aria-hidden="true">
-    <!-- Croix de fermeture -->
-    <div class="close-cross" id="closeCross" aria-label="Fermer le menu" role="button" tabindex="0">
-        <img src="images/croix.png" alt="Fermer" class="croix-image">
-    </div>
-    <ul class="menu">
-      <li><a href="index.html">Accueil</a></li>
-      <li>
-        <a href="#livres">Livres</a>
-        <ul class="submenu">
-          <li><a href="index.html#livre1">Overdose d'amour</a></li>
-          <li><a href="index.html#livre2">Expérience</a></li>
-          <li><a href="index.html#livre3">Enseigner en saignant</a></li>
-          <li><a href="index.html#livre4">A la mémoire du crime</a></li>
-          <li><a href="index.html#livre5">Tout sauf simple</a></li>
-		  <li><a href="index.html#livre6">Inapte mais debout</a></li>
-          <li><a href="index.html#livre7">A transmettre pour ne pas oublier</a></li>
-          <li><a href="index.html#livre8">Folie de vivre</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="#">A propos</a>
-        <ul class="submenu">
-          <li><a href="qui_suis_je.html">Qui suis-je?</a></li>
-        </ul>
-      </li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </div>
-        </nav>
+        <div class="bandeau">
+            <!-- ==========================
+                 Bouton burger (menu mobile)
+                 ========================== -->
+            <div class="burger-menu" id="burger" aria-label="Menu" role="button" tabindex="0">
+                <!-- Les trois barres du menu burger -->
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <!-- ==========================
+                 Menu déroulant (drawer menu)
+                 ========================== -->
+            <nav>
+                <!-- Conteneur du menu qui s'affiche/masque -->
+                <div class="menu-drawer" id="menuDrawer" aria-hidden="true">
+                    <!-- Croix pour fermer le menu -->
+                    <div class="close-cross" id="closeCross" aria-label="Fermer le menu" role="button" tabindex="0">
+                        <img src="images/croix.png" alt="Fermer" class="croix-image">
+                    </div> <!-- FIN Croix de fermeture -->
+                    
+                    <!-- Liste principale du menu -->
+                    <ul class="menu">
+                        <li><a href="index.html">Accueil</a></li>
+                        <li>
+                            <a href="#livres">Livres</a>
+                            <!-- Sous-menu des livres -->
+                            <ul class="submenu">
+                                <li><a href="index.html#livre1">Overdose d'amour</a></li>
+                                <li><a href="index.html#livre2">Expérience</a></li>
+                                <li><a href="index.html#livre3">Enseigner en saignant</a></li>
+                                <li><a href="index.html#livre4">A la mémoire du crime</a></li>
+                                <li><a href="index.html#livre5">Tout sauf simple</a></li>
+                                <li><a href="index.html#livre6">Inapte mais debout</a></li>
+                                <li><a href="index.html#livre7">A transmettre pour ne pas oublier</a></li>
+                                <li><a href="index.html#livre8">Folie de vivre</a></li>
+                            </ul> <!-- Fin sous-menu livres -->
+                        </li>
+                        <li>
+                            <a href="#">A propos</a>
+                            <!-- Sous-menu à propos -->
+                            <ul class="submenu">
+                                <li><a href="qui_suis_je.html">Qui suis-je?</a></li>
+                            </ul> <!-- Fin sous-menu à propos -->
+                        </li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul> <!-- Fin de la liste principale du menu -->
+                </div> <!-- Fin du menu-drawer -->
+            </nav>
+        </div> <!-- FIN du bandeau fixe en haut -->
     </header>
 
-    <!-- Contenu principal -->
+    <!-- Contenu principal de la page -->
     <main class="content">
-        <!-- Introduction -->
+        <!-- Section d'introduction -->
         <section class="intro">
             <h1>Daniglesias</h1>
             <h3>Blog littéraire</h3>
             <h4>Qui suis-je ?</h4>
             <p>
                 Bienvenue sur mon blog !<br><br>
-                Je suis Daniel Iglesias, un passionné des mots et de la transmission. Après deux décennies dédiées à l'enseignement du français et de l'espagnol, où j'ai eu le privilège de guider de jeunes esprits et de partager la richesse de ces langues, ma soif de raconter s'est étendue bien au-delà des salles de classe.<br><br>
-                En parallèle de ma carrière d'enseignant, j'ai embrassé l'univers de l'écriture, explorant les méandres du roman policier et les horizons lointains des récits d'aventure. Chaque page est pour moi une nouvelle exploration, un voyage au cœur de l'imaginaire.<br><br>
-                Aujourd'hui, je suis fier de vous annoncer que je suis en pleine rédaction de mon cinquième livre, une nouvelle étape dans cette aventure littéraire qui me passionne tant.<br><br>
+                Je suis Daniel Iglesias, un passionné des mots et de la transmission. Après deux décennies dédiées à l'enseignement du français et de l'espagnol, où j'ai eu le privilège de guider de jeunes esprits et de partager la richesse de ces langues, ma soif de raconter s'est étendue bien au-delà des salles de classe.<br /><br />
+                En parallèle de ma carrière d'enseignant, j'ai embrassé l'univers de l'écriture, explorant les méandres du roman policier et les horizons lointains des récits d'aventure. Chaque page est pour moi une nouvelle exploration, un voyage au cœur de l'imaginaire.<br /><br />
+                Aujourd'hui, je suis fier de vous annoncer que je suis en pleine rédaction de mon cinquième livre, une nouvelle étape dans cette aventure littéraire qui me passionne tant.<br /><br />
                 À travers ce blog, j'espère partager avec vous mes réflexions, mes inspirations, et les coulisses de mon travail d'écrivain. N'hésitez pas à me suivre dans cette belle aventure !
             </p>
         </section>
-    </main>   
+    </main>
+
     <!-- Pied de page -->
-        <footer id="footer">		     
-			<!-- Conteneur pour les boutons sociaux -->
-            <div class="social-buttons">
-  <!-- Bouton Facebook -->
-  <a class="social-btn facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdaniglesias-bloglitteraire.github.io%2F" target="_blank" rel="noopener noreferrer">
-    F
-  </a>
-
-  <!-- Bouton X (Twitter) -->
-  <a class="social-btn x" href="https://twitter.com/intent/tweet?text=Découvrez%20ce%20site%20fantastique%20https%3A%2F%2Fdaniglesias-bloglitteraire.github.io%2F" target="_blank" rel="noopener noreferrer">
-    X
-  </a>
-  
-  <!-- Bouton validation W3C -->
-  <a class="social-btn validation" href="https://validator.w3.org/nu/?doc=https%3A%2F%2Fdaniglesias-bloglitteraire.github.io/qui_suis_je.html" target="_blank" rel="noopener noreferrer" aria-label="Valider le site W3C">
-    ✓
-  </a>
-</div>
-<p>&copy; 2025 daniglesias-bloglitteraire.github.io<br>Tous droits réservés. Design et contenu crée par<br><i>le Comité de l'encrier d'or.</i></p>			
+    <footer id="footer">
+        <!-- Conteneur pour les boutons sociaux -->
+        <div class="social-buttons">
+            <!-- Bouton partage Facebook -->
+            <a class="social-btn facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdaniglesias-bloglitteraire.github.io%2F" target="_blank" rel="noopener noreferrer">
+                F
+            </a>
+            <!-- Bouton partage Twitter (X) -->
+            <a class="social-btn x" href="https://twitter.com/intent/tweet?text=Découvrez%20ce%20site%20fantastique%20https%3A%2F%2Fdaniglesias-bloglitteraire.github.io%2F" target="_blank" rel="noopener noreferrer">
+                X
+            </a>
+            <!-- Bouton validation W3C -->
+            <a class="social-btn validation" href="https://validator.w3.org/nu/?doc=https%3A%2F%2Fdaniglesias-bloglitteraire.github.io/qui_suis_je.html" target="_blank" rel="noopener noreferrer" aria-label="Valider le site W3C">
+                ✓
+            </a>
+        </div>
+        <p>&copy; 2025 daniglesias-bloglitteraire.github.io<br>
+            Tous droits réservés. Design et contenu crée par<br>
+            <i>le Comité de l'encrier d'or.</i>
+        </p>
     </footer>
-	<script>
-	document.addEventListener('DOMContentLoaded', () => {
-    const burger = document.getElementById('burger');
-    const menuDrawer = document.getElementById('menuDrawer');
-    const closeCross = document.getElementById('closeCross');
 
-    // Toggle le menu avec burger
-    burger.addEventListener('click', () => {
-        menuDrawer.classList.toggle('active');
-        menuDrawer.setAttribute('aria-hidden', String(!menuDrawer.classList.contains('active')));
-    });
+    <!-- Script pour la gestion du menu -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const burger = document.getElementById('burger'); // Bouton burger
+            const menuDrawer = document.getElementById('menuDrawer'); // Conteneur du menu
+            const closeCross = document.getElementById('closeCross'); // Croix de fermeture
 
-    // Ouvrir/fermer avec clic sur croix
-    closeCross.addEventListener('click', () => {
-        // Ajouter la classe pour animation de rotation
-        closeCross.classList.add('rotating');
+            // Ouvre ou ferme le menu lors du clic sur le burger
+            burger.addEventListener('click', () => {
+                // Toggle la classe 'active' pour afficher/masquer le menu
+                menuDrawer.classList.toggle('active');
+                // Met à jour l'attribut aria-hidden pour accessibilité
+                menuDrawer.setAttribute('aria-hidden', String(!menuDrawer.classList.contains('active')));
+            });
 
-        // Lance l'animation
-        closeCross.classList.add('rotating');
+            // Lors du clic sur la croix pour fermer
+            closeCross.addEventListener('click', () => {
+                // Ajoute une classe pour animation de rotation
+                closeCross.classList.add('rotating');
 
-        // Lors de la fin de l'animation, fermer le menu
-        closeCross.addEventListener('animationend', () => {
-            // Retirer la classe d'animation pour réinitialiser
-            closeCross.classList.remove('rotating');
-            // Fermer le menu
-            menuDrawer.classList.remove('active');
-            menuDrawer.setAttribute('aria-hidden', 'true');
-        }, { once: true });
-    });
+                // Lors de la fin de l'animation
+                closeCross.addEventListener('animationend', () => {
+                    // Retire la classe d'animation pour permettre une nouvelle rotation si besoin
+                    closeCross.classList.remove('rotating');
+                    // Ferme le menu en retirant la classe 'active'
+                    menuDrawer.classList.remove('active');
+                    // Met à jour l'accessibilité
+                    menuDrawer.setAttribute('aria-hidden', 'true');
+                }, { once: true }); // L'événement ne sera écouté qu'une seule fois
+            });
 
-    // Fermer si clic en dehors
-    document.addEventListener('click', (e) => {
-        if (!menuDrawer.contains(e.target) && !burger.contains(e.target)) {
-            menuDrawer.classList.remove('active');
-            menuDrawer.setAttribute('aria-hidden', 'true');
-        }
-    });
-});
-</script>
+            // Ferme le menu si clic en dehors
+            document.addEventListener('click', (e) => {
+                if (!menuDrawer.contains(e.target) && !burger.contains(e.target)) {
+                    // Si le clic est en dehors du menu et du burger, fermer le menu
+                    menuDrawer.classList.remove('active');
+                    menuDrawer.setAttribute('aria-hidden', 'true');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
