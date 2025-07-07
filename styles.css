@@ -497,68 +497,12 @@ a {
     max-width: calc(100% - 60px);
 }
 
-/* Boutons sociaux */
-.social-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-}
-
-/* Boutons sociaux individuels */
-.social-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    font-family: Arial, sans-serif;
-    font-weight: bold;
-    font-size: 14px;
-    color: #fff;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    cursor: pointer;
-}
-/* Plateformes spécifiques */
 .social-btn.facebook {
-    background-color: #3b5998;
-}
-.social-btn.x {
-    background-color: #fff;
-    color: #000;
-}
-/* Hover général */
-.social-btn:hover {
-    transform: scale(1.1);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
-}
-/* Hover pour le bouton X */
-.social-btn.x:hover {
-    background-color: #f0f0f0;
+  position: relative;
+  top:6px;
 }
 
-/* Badge de validation ou confirmation */
-.validation {
-    background-color: #ff6f61;
-    color: #fff;
-    width: 32px;
-    height: 32px;
-    font-size: 1.5em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-    text-decoration: none;
-    transition: background-color 0.3s, transform 0.3s;
-}
-.validation:hover {
-    background-color: #ff8a65;
-    transform: scale(1.1);
-    color: #2980b9;
-}
+
 
 /* ------------------------------------------- FIN DES STYLES GLOBAUX ------------------------------------------- */
 

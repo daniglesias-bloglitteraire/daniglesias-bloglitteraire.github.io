@@ -224,23 +224,45 @@
             </button>
         </div>
     </div>
-
     <!-- Pied de page -->
-    <footer id="footer">
-        <div class="social-buttons">
-            <a class="social-btn facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdaniglesias-bloglitteraire.github.io%2F" target="_blank" rel="noopener noreferrer">
-                F
-            </a>
-            <a class="social-btn x" href="https://twitter.com/intent/tweet?text=Découvrez%20ce%20site%20fantastique%20https%3A%2F%2Fdaniglesias-bloglitteraire.github.io%2F" target="_blank" rel="noopener noreferrer">
-                X
-            </a>
-            <a class="social-btn validation" href="https://validator.w3.org/nu/?doc=https%3A%2F%2Fdaniglesias-bloglitteraire.github.io" target="_blank" rel="noopener noreferrer" aria-label="Valider le site W3C">
-                ✓
-            </a>
-        </div>
-		<p>&copy; 2025 daniglesias-bloglitteraire.github.io<br>Tous droits réservés. Design et contenu créés par<br><i>le Comité de l'encrier d'or.</i></p>
-    </footer>
+<footer id="footer">
+    <div class="social-buttons">
+        <!-- Bouton Facebook personnalisé avec ton SVG -->
+        <a class="social-btn facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdaniglesias-bloglitteraire.github.io%2F" target="_blank" rel="noopener noreferrer" aria-label="Partager sur Facebook">
+            <svg xmlns="http://www.w3.org/2000/svg" width="43" height="43" viewBox="0 0 48 48" aria-hidden="true">
+                <linearGradient id="grad" x1="6.228" x2="42.077" y1="4.896" y2="43.432" gradientUnits="userSpaceOnUse">
+                    <stop offset="0" stop-color="#0d61a9"></stop>
+                    <stop offset="1" stop-color="#16528c"></stop>
+                </linearGradient>
+                <path fill="url(#grad)" d="M42,40c0,1.105-0.895,2-2,2H8c-1.105,0-2-0.895-2-2V8c0-1.105,0.895-2,2-2h32	c1.105,0,2,0.895,2,2V40z"></path>
+                <path d="M25,38V27h-4v-6h4v-2.138c0-5.042,2.666-7.818,7.505-7.818c1.995,0,3.077,0.14,3.598,0.208	l0.858,0.111L37,12.224L37,17h-3.635C32.237,17,32,18.378,32,19.535V21h4.723l-0.928,6H32v11H25z" opacity=".05"></path>
+                <path d="M25.5,37.5v-11h-4v-5h4v-2.638c0-4.788,2.422-7.318,7.005-7.318c1.971,0,3.03,0.138,3.54,0.204	l0.436,0.057l0.02,0.442V16.5h-3.135c-1.623,0-1.865,1.901-1.865,3.035V21.5h4.64l-0.773,5H31.5v11H25.5z" opacity=".07"></path>
+                <path fill="#fff" d="M33.365,16H36v-3.754c-0.492-0.064-1.531-0.203-3.495-0.203c-4.101,0-6.505,2.08-6.505,6.819V22h-4v4	h4v11h5V26h3.938l0.618-4H31v-2.465C31,17.661,31.612,16,33.365,16z"></path>
+            </svg>
+        </a>
 
+        <!-- Bouton X-Twitter SVG personnalisé -->
+        <a class="social-btn x" href="https://twitter.com/intent/tweet?text=Découvrez%20ce%20site%20fantastique%20https%3A%2F%2Fdaniglesias-bloglitteraire.github.io%2F" target="_blank" rel="noopener noreferrer" aria-label="Partager sur Twitter">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="#FFFFFF">
+                <path d="M14.095479,10.316482L22.286354,1h-1.940718l-7.115352,8.087682L7.551414,1H1l8.589488,12.231093L1,23h1.940717  l7.509372-8.542861L16.448587,23H23L14.095479,10.316482z M11.436522,13.338465l-0.871624-1.218704l-6.924311-9.68815h2.981339  l5.58978,7.82155l0.867949,1.218704l7.26506,10.166271h-2.981339L11.436522,13.338465z"/>
+            </svg>
+        </a>
+        <!-- Bouton W3C Validator -->
+        <a class="social-btn validation" href="https://validator.w3.org/nu/?doc=https%3A%2F%2Fdaniglesias-bloglitteraire.github.io%2F" target="_blank" rel="noopener noreferrer" aria-label="Valider le site W3C">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="32" height="32">
+                <rect width="64" height="64" fill="#ffffff" rx="8" ry="8" stroke="#000" stroke-width="2"/>
+                <text x="50%" y="50%" font-family="Arial, sans-serif" font-size="24" fill="#0066CC" dominant-baseline="middle" text-anchor="middle" font-weight="bold">
+                    W3C
+                </text>
+            </svg>
+        </a>
+    </div>
+    <p>
+        &copy; 2025 daniglesias-bloglitteraire.github.io<br>
+        Tous droits réservés. Design et contenu créés par<br>
+        <i>le Comité de l'encrier d'or.</i>
+    </p>
+</footer>
     <!-- Scripts défilement -->
     <script>
         document.getElementById('scrollTop').addEventListener('click', () => {
