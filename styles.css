@@ -595,7 +595,7 @@ a {
 		text-align: left !important;
     }
 			
-	    /* Sous-menu mobile (déroutant vers la droite) */
+	    /* Sous-menu mobile */
     ul.submenu {
     display: none; /* Cacher par défaut */
     position: absolute; /* Positionnement absolu par rapport au parent */
@@ -626,11 +626,11 @@ a {
         display: flex;
         position: fixed;
         top: 60px;
-        right: 60px;
+        right: 0px;
         background: white;
         padding: 10px;
         flex-direction: column;
-        width: 300px;
+        width: 340px;
         max-height: calc(100vh - 60px);
         overflow-y: auto;
         z-index: 9998;
@@ -643,8 +643,8 @@ a {
     .menu-drawer {
         position: absolute;
         top: calc(100% + 2px);
-        right: 80px;
-        width: 300px;
+        right: 0px;
+        width: 340px;
         background-color: #5E3200;
         box-shadow: 0 2px 8px rgba(0,0,0,0.5);
         display: none;

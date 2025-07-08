@@ -8,3 +8,4 @@ Allow: /index.html
 Allow: /styles.css
 Allow: /images/
 Allow: /fonts/
+Sitemap: https://daniglesias-bloglitteraire.github.io/sitemap.xml
