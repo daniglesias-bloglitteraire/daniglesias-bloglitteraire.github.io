@@ -1,0 +1,178 @@
+/* ============================================
+   SOUVENIRS — VERSION ULTRA LUXE 🔥
+   ============================================ */
+
+/* --- TYPO (sans import, system premium stack) --- */
+body {
+    font-family: "Georgia", "Times New Roman", serif;
+    background: #f4f1ed;
+}
+
+/* --- CONTAINER --- */
+.swiper {
+    width: 100%;
+    max-width: 900px;
+    margin: 50px auto;
+    border-radius: 16px;
+    overflow: hidden;
+
+    background: #fff;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.2);
+
+    position: relative;
+}
+
+/* --- SLIDE --- */
+.swiper-slide {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+
+    /* 🎬 transition fondu */
+    opacity: 0;
+    transition: opacity 0.8s ease;
+}
+
+.swiper-slide-active {
+    opacity: 1;
+}
+
+/* --- IMAGE --- */
+.swiper-slide img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    display: block;
+
+    transition: transform 1s ease;
+}
+
+/* zoom doux */
+.swiper-slide-active img {
+    transform: scale(1.07);
+}
+
+/* 📖 effet page (léger) */
+.swiper-slide {
+    transform: rotateY(8deg);
+}
+
+.swiper-slide-active {
+    transform: rotateY(0deg);
+}
+
+/* --- BLOC TEXTE --- */
+.texte-slide {
+    width: 100%;
+    padding: 32px 20px;
+
+    background: linear-gradient(to bottom, #f8f5f2, #eee6df);
+    border-top: 1px solid #d6c3a3;
+
+    display: flex;
+    justify-content: center;
+}
+
+/* --- TEXTE --- */
+.texte-slide p {
+    margin: 0;
+    max-width: 640px;
+
+    font-size: 1.15em;
+    color: #3e2f23;
+    line-height: 1.8;
+    text-align: center;
+
+    /* carte luxe */
+    background: #ffffff;
+    padding: 18px 26px;
+    border-radius: 12px;
+
+    box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+
+    /* animation ✨ */
+    opacity: 0;
+    transform: translateY(25px);
+    transition: all 0.7s ease;
+}
+
+.swiper-slide-active .texte-slide p {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- NAVIGATION --- */
+.swiper-button-next,
+.swiper-button-prev {
+    color: #8c6f4e !important;
+    background: rgba(255,255,255,0.95);
+    border-radius: 50%;
+    width: 46px !important;
+    height: 46px !important;
+    top: 42% !important;
+
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    transition: all 0.3s ease;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+    transform: scale(1.15);
+}
+
+/* --- PAGINATION --- */
+.swiper-pagination-bullet {
+    background: #8c6f4e !important;
+    opacity: 0.3;
+    transition: 0.3s;
+}
+
+.swiper-pagination-bullet-active {
+    opacity: 1 !important;
+    background: #3e2f23 !important;
+    transform: scale(1.2);
+}
+
+/* --- INTRO --- */
+.souvenirs-intro {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.souvenirs-intro h1 {
+    font-family: "Georgia", serif;
+    font-size: 2em;
+    color: #3e2f23;
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+}
+
+.souvenirs-intro p {
+    color: #6b5b4d;
+    font-size: 1.1em;
+    max-width: 680px;
+    margin: 0 auto;
+    line-height: 1.8;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 600px) {
+
+    .swiper-slide img {
+        height: 260px;
+    }
+
+    .texte-slide {
+        padding: 22px 14px;
+    }
+
+    .texte-slide p {
+        font-size: 0.95em;
+        padding: 14px;
+    }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+        display: none;
+    }
+}
