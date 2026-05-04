@@ -238,11 +238,10 @@ footer {
     color: #777; /* Couleur gris moyen */
 }
 
-/* Définition d'une police personnalisée 'FairWaterScript' */
+/* Définition d'une police personnalisée 'DancingScript' */
 @font-face {
-    font-family: 'FairWaterScript';
-    src: url('fonts/subset-FairwaterScript-Bold.woff2') format('woff2'),
-         url('fonts/subset-FairwaterScript-Bold.woff') format('woff');
+    font-family: 'DancingScript';
+    src: url('fonts/DancingScript.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
     font-synthesis: none;
@@ -251,7 +250,7 @@ footer {
 
 /* Titres principaux (h1) - Style Netflix sophistiqué */
 h1 {
-    font-family: 'FairWaterScript', cursive, Arial, sans-serif;
+    font-family: 'DancingScript', cursive, Arial, sans-serif;
     font-size: 4em; /* Plus grand pour un impact fort */
     color: #E50914; /* Couleur rouge Netflix */
     font-weight: normal; /* Normal pour respecter la police manuscrite */
@@ -275,7 +274,7 @@ h1:hover {
 
 /* Titre du formulaire (h2) - Style épuré et moderne */
 h2 {
-    font-family: 'FairWaterScript', cursive, Arial, sans-serif;
+    font-family: 'DancingScript', cursive, Arial, sans-serif;
     font-size: 2.5em;
     color: #E50914; /* Rouge Netflix */
     margin-bottom: 20px;
@@ -293,7 +292,7 @@ h2:hover {
 }
 
 h3 {
-    font-family: 'FairWaterScript', cursive, Arial, sans-serif;
+    font-family: 'DancingScript', cursive, Arial, sans-serif;
     font-size: 1.8em;
     color: #222222; /* Gris encore plus foncé */
     font-weight: normal;
@@ -309,7 +308,7 @@ h3 {
 
 /* Petits titres (h4) - Style délicat et subtil */
 h4 {
-    font-family: 'FairWaterScript', cursive, Arial, sans-serif;
+    font-family: 'DancingScript', cursive, Arial, sans-serif;
     font-size: 1.4em;
     color: #222222; /* Gris encore plus foncé */
     font-weight: normal;
