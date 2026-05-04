@@ -303,6 +303,93 @@
         <p>Je suis ravi que vous soyez là. Cet espace est à la fois un lieu d'échange, d'inspiration, et une vitrine pour partager avec vous mes œuvres, mes passions, et tout ce qui me fait vibrer en tant qu'auteur.</p>
         <p>Je vous invite à découvrir ici les 8 livres qui incarnent mon univers, mes inspirations, et mon envie de vous emmener dans des aventures littéraires riches et authentiques. Que vous soyez déjà conquis, simplement curieux, ou que vous souhaitiez en savoir plus sur mon parcours, vous trouverez toutes les infos nécessaires pour mieux me connaître et explorer mes écrits.</p>
         <p>N'hésitez pas à revenir souvent, car je partagerai régulièrement mes actualités, mes projets, et mes nouveautés. Merci de votre visite, et surtout, bonne lecture !</p>
+
+        <!-- ✦ Tour de France de la Mémoire -->
+        <div class="tdfm-block">
+            <img src="images/tour_de_france_memoire.png" alt="Tour de France de la Mémoire — Daniel Iglesias" class="tdfm-logo">
+            <div class="tdfm-text">
+                <span class="tdfm-label">✦ Actualité</span>
+                <p class="tdfm-desc">Au-delà de l'écriture, je parcours la France pour interagir avec les résidents en EHPAD, une immersion humaine où le récit devient un pont qui relie. Dans ce partage, je m'attache particulièrement à stimuler et préserver les facultés cognitives des aînés, transformant chaque lecture, chaque atelier en un précieux levier d'éveil et de mémoire.</p>
+                <div class="tdfm-links">
+                    <a href="https://www.facebook.com/share/1D9AUFe92b/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="tdfm-btn tdfm-fb" aria-label="Suivre sur Facebook">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 48 48" aria-hidden="true"><linearGradient id="tdfmfb" x1="6.228" x2="42.077" y1="4.896" y2="43.432" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#0d61a9"/><stop offset="1" stop-color="#16528c"/></linearGradient><path fill="url(#tdfmfb)" d="M42,40c0,1.105-0.895,2-2,2H8c-1.105,0-2-0.895-2-2V8c0-1.105,0.895-2,2-2h32c1.105,0,2,0.895,2,2V40z"/><path fill="#fff" d="M33.365,16H36v-3.754c-0.492-0.064-1.531-0.203-3.495-0.203c-4.101,0-6.505,2.08-6.505,6.819V22h-4v4h4v11h5V26h3.938l0.618-4H31v-2.465C31,17.661,31.612,16,33.365,16z"/></svg>
+                        Facebook
+                    </a>
+                    <a href="https://www.instagram.com/tourdefrancedelamemoire?igsh=MXhpdXAwcnl1emlheg%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" class="tdfm-btn tdfm-ig" aria-label="Suivre sur Instagram">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                        Instagram
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <style>
+            .tdfm-block {
+                display: flex;
+                align-items: center;
+                gap: 24px;
+                max-width: 760px;
+                margin: 10px auto 32px;
+                padding: 22px 28px;
+                background: rgba(255,255,255,0.03);
+                border: 1px solid rgba(192, 57, 43, 0.2);
+                border-radius: 14px;
+                box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+            }
+            .tdfm-logo {
+                width: 200px;
+                height: 200px;
+                object-fit: contain;
+                flex-shrink: 0;
+                filter: drop-shadow(0 2px 8px rgba(229,9,20,0.18));
+            }
+            .tdfm-text {
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+            }
+            .tdfm-label {
+                font-size: 0.65rem;
+                font-weight: 700;
+                letter-spacing: 0.2em;
+                text-transform: uppercase;
+                color: #e50914;
+            }
+            .tdfm-desc {
+                font-size: 0.9rem !important;
+                color: #555 !important;
+                margin: 0 !important;
+                text-align: left !important;
+                line-height: 1.6 !important;
+                max-width: 100% !important;
+            }
+            .tdfm-links {
+                display: flex;
+                gap: 10px;
+                margin-top: 4px;
+                flex-wrap: wrap;
+            }
+            .tdfm-btn {
+                display: inline-flex;
+                align-items: center;
+                gap: 6px;
+                padding: 7px 16px;
+                border-radius: 20px;
+                font-size: 0.78rem;
+                font-weight: 600;
+                letter-spacing: 0.04em;
+                text-decoration: none;
+                transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+            }
+            .tdfm-btn:hover { transform: translateY(-1px); opacity: 0.88; }
+            .tdfm-fb { background: #1877f2; color: #fff; box-shadow: 0 2px 10px rgba(24,119,242,0.3); }
+            .tdfm-ig { background: linear-gradient(135deg, #f58529, #dd2a7b, #8134af); color: #fff; box-shadow: 0 2px 10px rgba(221,42,123,0.3); }
+            @media (max-width: 600px) {
+                .tdfm-block { flex-direction: column; text-align: center; padding: 18px 20px; gap: 16px; }
+                .tdfm-desc { text-align: center !important; }
+                .tdfm-links { justify-content: center; }
+            }
+        </style>
     </section>
 
     <div class="content">

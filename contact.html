@@ -32,6 +32,226 @@
 
     <!-- Feuille de styles CSS -->
     <link rel="stylesheet" href="styles.css">
+    <!-- Police Anton pour les titres impactants -->
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+
+    <style>
+        /* ============================================================
+           FORMULAIRE CONTACT — STYLE MODALE "LIRE LE RÉSUMÉ"
+           Fond encre #1a1108 · Bordure rouge sang · Halo dramatique
+           ============================================================ */
+
+        /* Fond de page sombre comme la couverture d'un roman noir */
+        body {
+            background-color: #ffffff !important; /* Couleur de fond blanche */
+        }
+
+        /* Zone principale qui centre la "modale-formulaire" */
+        .contact-container {
+            position: relative;
+            width: 100%;
+            max-width: 620px;
+            margin: 100px auto 60px;
+            padding: 52px 48px 44px;
+            box-sizing: border-box;
+
+            background: #1a1108;
+            border: 1px solid rgba(192, 57, 43, 0.35);
+            border-radius: 18px;
+
+            box-shadow:
+                0 30px 80px rgba(0, 0, 0, 0.75),
+                0 0 0 1px rgba(255, 255, 255, 0.04) inset,
+                0 0 70px rgba(229, 9, 20, 0.07) inset;
+
+            /* scrollbar discrète */
+            scrollbar-width: thin;
+            scrollbar-color: #5a2a1a transparent;
+        }
+
+        /* Ligne déco dégradée rouge en haut — signature des modales */
+        .contact-container::before {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 0; left: 48px; right: 48px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #e50914 40%, #c0392b 60%, transparent);
+            border-radius: 0 0 2px 2px;
+        }
+
+        /* Petit label au-dessus du titre — style modal-label */
+        .contact-label {
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: #e50914;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        /* Titre h2 en style Anton percutant */
+        .contact-container h2 {
+            font-family: 'Anton', 'Impact', sans-serif !important;
+            font-size: 2rem !important;
+            color: #fff !important;
+            letter-spacing: 0.06em !important;
+            text-transform: uppercase;
+            margin: 0 0 6px 0 !important;
+            text-shadow:
+                0 0 20px rgba(229, 9, 20, 0.4),
+                0 2px 8px rgba(0,0,0,0.7) !important;
+            text-align: left !important;
+            font-weight: 400;
+        }
+
+        /* Séparateur élégant sous le titre */
+        .contact-divider {
+            width: 48px;
+            height: 1.5px;
+            background: linear-gradient(90deg, #e50914, transparent);
+            margin: 18px 0 28px;
+        }
+
+        /* Accroche sous le séparateur */
+        .contact-tagline {
+            font-size: 0.88rem;
+            color: #9a7a6a;
+            letter-spacing: 0.04em;
+            margin-bottom: 32px;
+            line-height: 1.6;
+            font-style: italic;
+        }
+
+        /* Labels redessinés */
+        .contact-container label {
+            display: flex;
+            flex-direction: column;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: #c0392b;
+            margin-bottom: 20px;
+            gap: 8px;
+        }
+
+        /* Champs de saisie dans l'univers sombre */
+        .contact-container input[type="email"],
+        .contact-container textarea {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(192, 57, 43, 0.3);
+            border-radius: 8px;
+            color: #e8ddd5;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-size: 0.95rem;
+            padding: 14px 16px;
+            margin-bottom: 0;
+            transition: border-color 0.28s ease, box-shadow 0.28s ease, background 0.28s ease;
+            outline: none;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .contact-container input[type="email"]::placeholder,
+        .contact-container textarea::placeholder {
+            color: rgba(160, 130, 115, 0.45);
+            font-style: italic;
+        }
+
+        /* Focus — halo rouge dramatique */
+        .contact-container input[type="email"]:focus,
+        .contact-container textarea:focus {
+            border-color: rgba(229, 9, 20, 0.7);
+            background: rgba(229, 9, 20, 0.05);
+            box-shadow:
+                0 0 0 3px rgba(229, 9, 20, 0.12),
+                0 0 24px rgba(229, 9, 20, 0.15);
+        }
+
+        /* Textarea plus haute */
+        .contact-container textarea {
+            height: 160px;
+            resize: vertical;
+        }
+
+        /* Bouton envoi — plein rouge, typographie Anton */
+        .contact-container button[type="submit"] {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            margin-top: 8px;
+            padding: 16px 28px;
+            background: #e50914;
+            border: none;
+            border-radius: 30px;
+            color: #fff;
+            font-family: 'Anton', 'Impact', sans-serif;
+            font-size: 0.95rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background 0.25s ease, box-shadow 0.25s ease, transform 0.2s ease;
+        }
+
+        .contact-container button[type="submit"]:hover {
+            background: #c0060f;
+            box-shadow: 0 8px 30px rgba(229, 9, 20, 0.45);
+            transform: translateY(-2px);
+        }
+
+        .contact-container button[type="submit"]:active {
+            transform: translateY(0);
+            box-shadow: 0 3px 12px rgba(229, 9, 20, 0.3);
+        }
+
+        /* Flèche dans le bouton */
+        .btn-arrow {
+            display: inline-block;
+            transition: transform 0.25s ease;
+        }
+        .contact-container button[type="submit"]:hover .btn-arrow {
+            transform: translateX(4px);
+        }
+
+        /* Petit texte de confidentialité */
+        .contact-privacy {
+            margin-top: 18px;
+            text-align: center;
+            font-size: 0.7rem;
+            color: rgba(154, 122, 106, 0.6);
+            letter-spacing: 0.06em;
+        }
+
+        /* Message de confirmation */
+        .contact-success {
+            display: none;
+            text-align: center;
+            padding: 16px;
+            background: rgba(229, 9, 20, 0.1);
+            border: 1px solid rgba(229, 9, 20, 0.3);
+            border-radius: 8px;
+            color: #e8a89e;
+            font-size: 0.88rem;
+            letter-spacing: 0.04em;
+            margin-top: 16px;
+        }
+
+        /* Responsive mobile */
+        @media (max-width: 680px) {
+            .contact-container {
+                margin: 80px 16px 40px;
+                padding: 40px 24px 36px;
+            }
+            .contact-container::before {
+                left: 24px;
+                right: 24px;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- En-tête fixe en haut de page -->
@@ -86,22 +306,48 @@
         </div> <!-- fin de bandeau -->
     </header>
 
-    <!-- Section de contact -->
+    <!-- Section de contact — style modale "Lire le résumé" -->
     <div class="contact-container" style="flex: 1;">
-        <h2>Contactez-nous</h2>
-        <!-- Formulaire de contact, envoi via Formspree -->
+
+        <!-- Label discret au-dessus -->
+        <span class="contact-label">✦ Message à l'auteur</span>
+
+        <!-- Titre percutant -->
+        <h2>Écrivez-moi</h2>
+
+        <!-- Séparateur signature -->
+        <div class="contact-divider"></div>
+
+        <!-- Accroche littéraire -->
+        <p class="contact-tagline">
+            Chaque roman commence par une rencontre. La vôtre débute ici&nbsp;—<br>
+            laissez-moi un message, je vous répondrai avec plaisir.
+        </p>
+
+        <!-- Formulaire, envoi via Formspree -->
         <form action="https://formspree.io/f/manogojz" method="POST">
+
             <label>
-                Email:
-                <input type="email" name="email">
+                Votre adresse e-mail
+                <input type="email" name="email" placeholder="vous@exemple.com" required>
             </label>
+
             <label>
-                Message:
-                <textarea name="message"></textarea>
+                Votre message
+                <textarea name="message" placeholder="Bonjour Daniel, je voulais vous dire…" required></textarea>
             </label>
-            <!-- Bouton d'envoi -->
-            <button type="submit">Envoyer</button>
+
+            <!-- Bouton d'envoi théâtral -->
+            <button type="submit">
+                Envoyer le message
+                <span class="btn-arrow">→</span>
+            </button>
+
         </form>
+
+        <!-- Mention confidentialité -->
+        <p class="contact-privacy">Vos données restent confidentielles · Propulsé par Formspree</p>
+
     </div> <!-- fin de contact-container -->
 
     <!-- Pied de page -->
