@@ -240,13 +240,19 @@ footer {
 
 /* Définition d'une police personnalisée 'FairWaterScript' */
 @font-face {
-    font-family: 'FairWaterScript'; /* Nom de la police */
-    src: url('fonts/FairWaterScript.woff2') format('woff2'), /* Source en format WOFF2 */
-         url('fonts/FairWaterScript.woff') format('woff'), /* Source en WOFF */
-         url('fonts/FairWaterScript.ttf') format('truetype'); /* Source TTF comme fallback */
-    font-weight: normal; /* Poids normal */
-    font-style: normal; /* Style normal */
-    font-synthesis: none; /* Interdit au navigateur de simuler le gras sur les accents */
+    font-family: 'FairWaterScript';
+    src: url('fonts/FairWaterScript.woff2') format('woff2'),
+         url('fonts/FairWaterScript.woff') format('woff'),
+         url('fonts/FairWaterScript.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-synthesis: none;
+    font-display: swap;
+    /* Force les glyphes accentués de la police sur mobile
+       plutôt que la composition navigateur (é è ê à â ù û ü ô î ï ç…) */
+    unicode-range:
+        U+00C0-00FF,
+        U+0020-007E;
 }
 
 /* Titres principaux (h1) - Style Netflix sophistiqué */
@@ -593,6 +599,14 @@ a {
     /* Titre dans intro réduit pour mobile */
     .intro h1 {
         font-size: 2rem;
+    }
+
+    /* Correctif accents FairWaterScript sur mobile */
+    h1, h2, h3, h4 {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeLegibility;
+        font-synthesis: none;
     }
 
     /* Affichage du burger menu en mobile */
