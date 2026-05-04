@@ -25,6 +25,234 @@
 
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="styles.css">
+
+    <style>
+        /* =============================================
+           MODALE — FENÊTRE RÉSUMÉ CHIC & MODERNE
+           ============================================= */
+
+        /* Bouton "Lire le résumé" sur chaque carte */
+        .btn-resume {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 16px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 10px 22px;
+            background: transparent;
+            border: 1.5px solid #c0392b;
+            border-radius: 30px;
+            color: #e50914;
+            font-size: 0.88rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background 0.25s ease, color 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
+        }
+
+        .btn-resume svg {
+            width: 15px;
+            height: 15px;
+            flex-shrink: 0;
+            transition: transform 0.25s ease;
+        }
+
+        .btn-resume:hover {
+            background: #e50914;
+            color: #fff;
+            box-shadow: 0 4px 18px rgba(229, 9, 20, 0.38);
+            transform: translateY(-1px);
+        }
+
+        .btn-resume:hover svg {
+            transform: translateX(3px);
+        }
+
+        /* ---- OVERLAY ---- */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+
+            background: rgba(8, 4, 2, 0.72);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.35s ease, visibility 0.35s ease;
+        }
+
+        .modal-overlay.open {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* ---- BOÎTE MODALE ---- */
+        .modal-box {
+            position: relative;
+            width: 100%;
+            max-width: 620px;
+            max-height: 88vh;
+            overflow-y: auto;
+
+            background: #1a1108;
+            border: 1px solid rgba(192, 57, 43, 0.35);
+            border-radius: 18px;
+
+            box-shadow:
+                0 30px 80px rgba(0,0,0,0.7),
+                0 0 0 1px rgba(255,255,255,0.04) inset,
+                0 0 60px rgba(229, 9, 20, 0.06) inset;
+
+            padding: 48px 44px 40px;
+
+            transform: translateY(28px) scale(0.97);
+            transition: transform 0.38s cubic-bezier(0.22, 1, 0.36, 1);
+
+            /* scrollbar discrète */
+            scrollbar-width: thin;
+            scrollbar-color: #5a2a1a transparent;
+        }
+
+        .modal-box::-webkit-scrollbar { width: 5px; }
+        .modal-box::-webkit-scrollbar-track { background: transparent; }
+        .modal-box::-webkit-scrollbar-thumb { background: #5a2a1a; border-radius: 3px; }
+
+        .modal-overlay.open .modal-box {
+            transform: translateY(0) scale(1);
+        }
+
+        /* ---- LIGNE DÉCO EN HAUT ---- */
+        .modal-box::before {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 0; left: 44px; right: 44px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #e50914 40%, #c0392b 60%, transparent);
+            border-radius: 0 0 2px 2px;
+        }
+
+        /* ---- BOUTON FERMER ---- */
+        .modal-close {
+            position: absolute;
+            top: 16px;
+            right: 18px;
+            width: 34px;
+            height: 34px;
+            border: none;
+            background: rgba(255,255,255,0.06);
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #aaa;
+            font-size: 18px;
+            line-height: 1;
+            transition: background 0.2s, color 0.2s, transform 0.2s;
+        }
+
+        .modal-close:hover {
+            background: rgba(229, 9, 20, 0.18);
+            color: #e50914;
+            transform: rotate(90deg);
+        }
+
+        /* ---- MINIATURE + TITRE ---- */
+        .modal-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            margin-bottom: 28px;
+        }
+
+        .modal-cover {
+            width: 72px;
+            height: auto;
+            border-radius: 6px;
+            flex-shrink: 0;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+            object-fit: cover;
+        }
+
+        .modal-title-block {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .modal-label {
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: #e50914;
+            margin-bottom: 6px;
+        }
+
+        .modal-title {
+            font-family: 'Anton', 'Impact', sans-serif;
+            font-size: 1.4rem;
+            color: #fff;
+            line-height: 1.2;
+            margin: 0;
+            letter-spacing: 0.04em;
+            text-shadow: 0 0 20px rgba(229,9,20,0.3);
+        }
+
+        /* ---- SÉPARATEUR ---- */
+        .modal-divider {
+            width: 40px;
+            height: 1px;
+            background: linear-gradient(90deg, #e50914, transparent);
+            margin-bottom: 22px;
+        }
+
+        /* ---- CORPS TEXTE ---- */
+        .modal-body p {
+            color: #c8b9aa;
+            font-size: 0.97rem;
+            line-height: 1.85;
+            margin: 0 0 1em;
+            text-align: justify;
+        }
+
+        .modal-body p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* ---- MOBILE ---- */
+        @media (max-width: 520px) {
+            .modal-box {
+                padding: 36px 22px 30px;
+                border-radius: 14px;
+            }
+
+            .modal-box::before {
+                left: 22px; right: 22px;
+            }
+
+            .modal-cover {
+                width: 56px;
+            }
+
+            .modal-title {
+                font-size: 1.1rem;
+            }
+
+            .modal-body p {
+                font-size: 0.92rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -60,7 +288,7 @@
                                 <li><a href="qui_suis_je.html">Qui suis-je?</a></li>
                             </ul>
                         </li>
-                        <li><a href="medias_presse.html">Médias & Presse</a></li>
+                        <li><a href="medias_presse.html">Médias &amp; Presse</a></li>
                         <li><a href="souvenirs.html">Souvenirs</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
@@ -78,25 +306,17 @@
     </section>
 
     <div class="content">
-        <section class="livres-alignées">
+        <section class="livres-alignées" id="livres">
 
             <!-- Livre 1 : Transmettre pour ne pas oublier -->
             <div class="card" id="livre1">
                 <img src="images/transmettre.png" alt="Transmettre pour ne pas oublier" class="image-argentee">
                 <div class="description">
                     <h3>Transmettre<br>pour ne pas oublier</h3>
-                    <p>"Un recueil vibrant des mémoires qui bâtissent nos vies."
-                        Et si les plus belles histoires étaient celles que l'on a vécues ?
-                        Dans un monde qui file à toute vitesse, nous oublions parfois la richesse inestimable des chemins parcourus. 
-                        Les rires d'antan, les épreuves surmontées, les amours d'une vie, la fierté d'un travail accompli.
-                        Autant de trésors qui façonnent notre identité et éclairent notre présent.</p>
-                    <p>Ce livre témoigne des confidences de ceux qui ont vécu avant nous, des voix sages et
-                        authentiques qui nous parlent des rues de leur enfance, des liens indéfectibles d'amitié, du courage face à l'adversité,
-                        des petits bonheurs qui illuminent le quotidien, et des conseils précieux qu'ils aimeraient laisser aux jeunes générations.
-                        Plongez au cœur de ces récits poignants et lumineux. Laissez-vous émouvoir par la force de la résilience,
-                        la beauté des gestes simples et la puissance des mots transmis. 
-                        Ce livre est un pont entre les âges et un hommage vibrant à nos aînés. 
-                        Des histoires à lire, à partager et à chérir pour que jamais le fil invisible de nos histoires ne se rompe.</p>
+                    <button class="btn-resume" data-modal="modal1">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
+                        Lire le résumé
+                    </button>
                 </div>
             </div>
 
@@ -105,19 +325,10 @@
                 <img src="images/inapte.png" alt="Inapte mais debout" class="image-argentee">
                 <div class="description">
                     <h3>Inapte mais debout</h3>
-                    <p>"Histoires d'un corps brisé, d'une volonté intacte, et d'une vie qui refuse de s'éteindre.
-                        Le corps faiblit, la douleur se fait lourde, et la vie semble se perdre dans le silence d'une société pressée. 
-                        Mais faut-il alors accepter que la fin soit écrite pour soi ? 
-                        Ce livre est né d'un combat silencieux, d'une force intérieure:
-                        celle qui, même lorsqu'on est écorché, continue de se battre.</p>
-                    <p>À travers des fragments d'intimité, des témoignages tendres, et des mots pleins de lenteur,
-                        il nous enseigne une leçon de résilience et nous raconte la beauté dans l'imperfection, les petits gestes réapprivoisés,
-                        les regards à la fois cruels et nourrissants. 
-                        Il parle de cet orgueil silencieux qu'on cache, des rires qui résonnent malgré les larmes,
-                        et surtout de cette énergie qui, même fracturée, persiste.</p>
-                    <p>C'est une invitation à ceux qui ont été foudroyés par la vie et qui, pourtant, cherchent à se relever avec douceur. 
-                        Un livre pour ceux qui savent que parfois, la vraie force se trouve dans la capacité à se tenir droit dans l'adversité.
-                        À tenir bon, même quand le corps vacille.</p>
+                    <button class="btn-resume" data-modal="modal2">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
+                        Lire le résumé
+                    </button>
                 </div>
             </div>
 
@@ -126,14 +337,10 @@
                 <img src="images/tout_sauf_simple.jpg" alt="Tout sauf simple" class="image-argentee">
                 <div class="description">
                     <h3>Tout sauf simple</h3>
-                    <p>Ils parlent beaucoup. Ou pas du tout. Ils posent mille questions ou s'enferment dans leurs silences.
-                       Ils débordent d'idées, d'émotions, de contradictions, de lumières. Parfois, on les appelle "atypiques" ou "intenses".
-                       Mais souvent, on les comprend mal.</p>
-                    <p>Ce livre est une main tendue vers ces enfants qui pensent autrement.
-                       Et vers leurs parents, qui apprennent chaque jour à écouter, adapter, tenir bon et aimer sans mode d'emploi.
-                       À travers des anecdotes vraies, des fragments de vie et des conseils concrets, ce livre propose un regard tendre,
-                       lucide et profondément humain sur ce qu'est grandir "hors des cases".
-                       Parce qu'il n'existe pas d'enfant 'trop', ni de parent dépassé. Seulement des chemins à apprivoiser ensemble.</p>
+                    <button class="btn-resume" data-modal="modal3">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
+                        Lire le résumé
+                    </button>
                 </div>
             </div>
 
@@ -142,10 +349,10 @@
                 <img src="images/overdose_d_amour.png" alt="Overdose d'amour" class="image-argentee">
                 <div class="description">
                     <h3>Overdose d'amour</h3>
-                    <p>"Une femme, un mari disparu, et un inspecteur déterminé : la vérité n'est qu'à un pas de l'overdose d'amour."</p>
-                    <p>Au détour d'une rue de la ville de Troyes, Isabelle Chauffour se dirige vers le commissariat, le cœur alourdi par une inquiétude croissante. Son mari a disparu, et elle se présente devant les policiers, visiblement sincère et préoccupée. Mais derrière son apparente détresse, se cache-t-il un secret ?</p>
-                    <p>L'inspecteur Martin, assisté de ses deux sergents, se retrouve plongé dans une enquête complexe où chaque indice peut être déterminant. Alors qu'il déchiffre le mystère de cette disparition, il découvre que rien n'est jamais aussi simple qu'il n'y paraît. Entre mensonges et révélations, l'amour et la trahison s'entrelacent, remettant en question les certitudes de chacun.</p>
-                    <p>Dans un récit haletant où chaque page tourne comme un coup de feu, "Overdose d'amour" interroge les limites de la vérité et des relations humaines. Serez-vous capable de découvrir, avant l'inspecteur, ce qui se cache sous la surface de l'amour ?</p>
+                    <button class="btn-resume" data-modal="modal4">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
+                        Lire le résumé
+                    </button>
                 </div>
             </div>
 
@@ -154,10 +361,10 @@
                 <img src="images/expérience.png" alt="Expérience" class="image-argentee">
                 <div class="description">
                     <h3>Expérience</h3>
-                    <p>"Quand la réalité s'efface, seuls l'amitié et le courage peuvent ouvrir les portes du multivers. Osez l'expérience !"
-                        Lucas, un jeune homme en quête de sens, perd son oncle Sam. Lors de l'enterrement, sa mère lui remet une enveloppe scellée contenant un message codé. Avec son ami Éric, il se lance dans une aventure captivante à travers des mondes inconnus et des époques révolues.
-                        Chaque indice les rapproche d'une vérité incroyable, tout en les entraînant vers des dangers inattendus. Résoudre des énigmes et franchir des portails temporels, c'est découvrir que l'amitié, le courage et la curiosité sont les clés de l'inconnu.
-                        "Experience" vous plonge au cœur du multivers, où chaque choix peut changer le cours de l'histoire. Prêts à déchiffrer le mystère ? L'aventure commence ici…</p>
+                    <button class="btn-resume" data-modal="modal5">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
+                        Lire le résumé
+                    </button>
                 </div>
             </div>
 
@@ -166,11 +373,10 @@
                 <img src="images/enseigner_en_saignant.png" alt="Enseigner en saignant" class="image-argentee">
                 <div class="description">
                     <h3>Enseigner en saignant</h3>
-                    <p>"Un mystère à résoudre, des vies à sauver : l'angoisse s'invite dans la salle de classe."
-                       Bryan, un adolescent aux prises avec des troubles psychiatriques exacerbés par la perte de sa mère, consulte un psychiatre pour se sentir mieux. Dans ce monde déjà chaotique, la tension monte lorsqu'une élève du lycée Camille Claudel disparaît mystérieusement.
-                       De son côté, Léonie Alvarez, jeune professeure d'espagnol fraîchement diplômée, se prépare à vivre sa première rentrée scolaire. Mais l'ombre de cette disparition plane sur son nouveau départ et la communauté scolaire est en émoi.
-                       Lorsque la vie de Bryan et Léonie s'entremêle, l'inspecteur Martin est appelé à mener l'enquête. Au fil des révélations, les secrets enfouis resurgissent, et chaque indice les rapproche d'une vérité troublante.
-                       "Enseigner en saignant" est un thriller haletant où la psychologie et le mystère se rencontrent, plongeant les lecteurs dans une atmosphère où chaque personnage cache des facettes obscures. Préparez-vous à une immersion captivante, où le passé et le présent s'affrontent dans une course contre la montre pour découvrir la vérité.</p>
+                    <button class="btn-resume" data-modal="modal6">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
+                        Lire le résumé
+                    </button>
                 </div>
             </div>
 
@@ -179,11 +385,10 @@
                 <img src="images/mémoire_du_crime.png" alt="A la mémoire du crime" class="image-argentee">
                 <div class="description">
                     <h3>A la mémoire du crime</h3>
-                    <p>"Quand la mémoire s'efface, la quête de la vérité devient un acte d'amour."
-                       John et Dolorès Keating sont des grands-parents épanouis, profitant de chaque instant passé dans leur jardin et auprès de leurs petits-enfants. Mais leur bonheur s'effondre lorsque John reçoit un diagnostic dévastateur : la maladie d'Alzheimer. Peu après, un drame encore plus terrible se produit : Dolorès est retrouvée morte aux pieds de son escalier.
-                       Pour l'inspecteur Martin, l'enquête commence, mais il doit faire face à un dilemme cruel : s'agit-il d'un accident tragique ou d'un meurtre sordide ? Alors que les indices se multiplient, John, convaincu que sa femme a été poussée, décide de mener sa propre enquête.
-                       Dans une course contre la montre, le déclin de la santé mentale de John et la recherche de la vérité s'entremêlent, mettant en lumière les profondeurs de l'amour, du chagrin et de la trahison.
-                       "À la mémoire du crime" est un thriller poignant qui vous plongera dans un mystère captivant, où chaque révélation pourrait changer le cours de l'histoire. Préparez-vous à découvrir si l'amour peut véritablement transcender la tragédie.</p>
+                    <button class="btn-resume" data-modal="modal7">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
+                        Lire le résumé
+                    </button>
                 </div>
             </div>
 
@@ -192,11 +397,10 @@
                 <img src="images/folie_de_vivre.jpg" alt="Folie de vivre" class="image-argentee">
                 <div class="description">
                     <h3>Folie de vivre</h3>
-                    <p>"Accusée du meurtre qu'elle doit résoudre, sa seule échappatoire est la folie... à moins qu'elle ne soit la vérité."
-                       L'inspecteur Martin s'apprête à tirer sa révérence, laissant derrière lui une carrière exemplaire et un poste promis à sa brillante sergente, Esther Bracamonte. Mais le jour de son départ à la retraite, le destin bascule dans l'horreur. L'impensable se produit : l'inspecteur est retrouvé assassiné. Et l'accusation tombe, implacable, sur celle qui devait lui succéder : Esther Bracamonte.
-                       Jetée derrière les barreaux, Esther se retrouve prise au piège d'un système qu'elle a toujours servi. Confrontée à la brutalité du monde carcéral, elle doit désormais lutter pour sa survie, non seulement contre les murs qui l'enserrent, mais aussi contre la folie qui menace de l'engloutir. Chaque jour passé en prison est un combat pour sa raison, une quête désespérée pour prouver son innocence.
-                       Mais au plus profond de son désespoir, une question insidieuse commence à la hanter, une pensée glaciale qui s'insinue dans son esprit : et si, dans un acte de folie indicible, elle était réellement l'auteure de ce crime ?
-                       Plongez dans un thriller psychologique où la vérité est une illusion, l'innocence une prison, et la folie, la seule issue.</p>
+                    <button class="btn-resume" data-modal="modal8">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
+                        Lire le résumé
+                    </button>
                 </div>
             </div>
 
@@ -212,6 +416,174 @@
         </div>
     </div>
 
+    <!-- =============================================
+         MODALES — UNE PAR LIVRE
+         ============================================= -->
+
+    <!-- MODAL 1 -->
+    <div class="modal-overlay" id="modal1" role="dialog" aria-modal="true" aria-label="Résumé : Transmettre pour ne pas oublier">
+        <div class="modal-box">
+            <button class="modal-close" aria-label="Fermer">&#x2715;</button>
+            <div class="modal-header">
+                <img src="images/transmettre.png" alt="" class="modal-cover">
+                <div class="modal-title-block">
+                    <span class="modal-label">Résumé</span>
+                    <h2 class="modal-title">Transmettre pour ne pas oublier</h2>
+                </div>
+            </div>
+            <div class="modal-divider"></div>
+            <div class="modal-body">
+                <p>"Un recueil vibrant des mémoires qui bâtissent nos vies." Et si les plus belles histoires étaient celles que l'on a vécues ? Dans un monde qui file à toute vitesse, nous oublions parfois la richesse inestimable des chemins parcourus. Les rires d'antan, les épreuves surmontées, les amours d'une vie, la fierté d'un travail accompli. Autant de trésors qui façonnent notre identité et éclairent notre présent.</p>
+                <p>Ce livre témoigne des confidences de ceux qui ont vécu avant nous, des voix sages et authentiques qui nous parlent des rues de leur enfance, des liens indéfectibles d'amitié, du courage face à l'adversité, des petits bonheurs qui illuminent le quotidien, et des conseils précieux qu'ils aimeraient laisser aux jeunes générations. Plongez au cœur de ces récits poignants et lumineux. Laissez-vous émouvoir par la force de la résilience, la beauté des gestes simples et la puissance des mots transmis.</p>
+                <p>Ce livre est un pont entre les âges et un hommage vibrant à nos aînés. Des histoires à lire, à partager et à chérir pour que jamais le fil invisible de nos histoires ne se rompe.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL 2 -->
+    <div class="modal-overlay" id="modal2" role="dialog" aria-modal="true" aria-label="Résumé : Inapte mais debout">
+        <div class="modal-box">
+            <button class="modal-close" aria-label="Fermer">&#x2715;</button>
+            <div class="modal-header">
+                <img src="images/inapte.png" alt="" class="modal-cover">
+                <div class="modal-title-block">
+                    <span class="modal-label">Résumé</span>
+                    <h2 class="modal-title">Inapte mais debout</h2>
+                </div>
+            </div>
+            <div class="modal-divider"></div>
+            <div class="modal-body">
+                <p>"Histoires d'un corps brisé, d'une volonté intacte, et d'une vie qui refuse de s'éteindre." Le corps faiblit, la douleur se fait lourde, et la vie semble se perdre dans le silence d'une société pressée. Mais faut-il alors accepter que la fin soit écrite pour soi ? Ce livre est né d'un combat silencieux, d'une force intérieure : celle qui, même lorsqu'on est écorché, continue de se battre.</p>
+                <p>À travers des fragments d'intimité, des témoignages tendres, et des mots pleins de lenteur, il nous enseigne une leçon de résilience et nous raconte la beauté dans l'imperfection, les petits gestes réapprivoisés, les regards à la fois cruels et nourrissants. Il parle de cet orgueil silencieux qu'on cache, des rires qui résonnent malgré les larmes, et surtout de cette énergie qui, même fracturée, persiste.</p>
+                <p>C'est une invitation à ceux qui ont été foudroyés par la vie et qui, pourtant, cherchent à se relever avec douceur. Un livre pour ceux qui savent que parfois, la vraie force se trouve dans la capacité à se tenir droit dans l'adversité. À tenir bon, même quand le corps vacille.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL 3 -->
+    <div class="modal-overlay" id="modal3" role="dialog" aria-modal="true" aria-label="Résumé : Tout sauf simple">
+        <div class="modal-box">
+            <button class="modal-close" aria-label="Fermer">&#x2715;</button>
+            <div class="modal-header">
+                <img src="images/tout_sauf_simple.jpg" alt="" class="modal-cover">
+                <div class="modal-title-block">
+                    <span class="modal-label">Résumé</span>
+                    <h2 class="modal-title">Tout sauf simple</h2>
+                </div>
+            </div>
+            <div class="modal-divider"></div>
+            <div class="modal-body">
+                <p>Ils parlent beaucoup. Ou pas du tout. Ils posent mille questions ou s'enferment dans leurs silences. Ils débordent d'idées, d'émotions, de contradictions, de lumières. Parfois, on les appelle "atypiques" ou "intenses". Mais souvent, on les comprend mal.</p>
+                <p>Ce livre est une main tendue vers ces enfants qui pensent autrement. Et vers leurs parents, qui apprennent chaque jour à écouter, adapter, tenir bon et aimer sans mode d'emploi. À travers des anecdotes vraies, des fragments de vie et des conseils concrets, ce livre propose un regard tendre, lucide et profondément humain sur ce qu'est grandir "hors des cases".</p>
+                <p>Parce qu'il n'existe pas d'enfant 'trop', ni de parent dépassé. Seulement des chemins à apprivoiser ensemble.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL 4 -->
+    <div class="modal-overlay" id="modal4" role="dialog" aria-modal="true" aria-label="Résumé : Overdose d'amour">
+        <div class="modal-box">
+            <button class="modal-close" aria-label="Fermer">&#x2715;</button>
+            <div class="modal-header">
+                <img src="images/overdose_d_amour.png" alt="" class="modal-cover">
+                <div class="modal-title-block">
+                    <span class="modal-label">Résumé</span>
+                    <h2 class="modal-title">Overdose d'amour</h2>
+                </div>
+            </div>
+            <div class="modal-divider"></div>
+            <div class="modal-body">
+                <p>"Une femme, un mari disparu, et un inspecteur déterminé : la vérité n'est qu'à un pas de l'overdose d'amour."</p>
+                <p>Au détour d'une rue de la ville de Troyes, Isabelle Chauffour se dirige vers le commissariat, le cœur alourdi par une inquiétude croissante. Son mari a disparu, et elle se présente devant les policiers, visiblement sincère et préoccupée. Mais derrière son apparente détresse, se cache-t-il un secret ?</p>
+                <p>L'inspecteur Martin, assisté de ses deux sergents, se retrouve plongé dans une enquête complexe où chaque indice peut être déterminant. Alors qu'il déchiffre le mystère de cette disparition, il découvre que rien n'est jamais aussi simple qu'il n'y paraît. Entre mensonges et révélations, l'amour et la trahison s'entrelacent, remettant en question les certitudes de chacun.</p>
+                <p>Dans un récit haletant où chaque page tourne comme un coup de feu, "Overdose d'amour" interroge les limites de la vérité et des relations humaines. Serez-vous capable de découvrir, avant l'inspecteur, ce qui se cache sous la surface de l'amour ?</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL 5 -->
+    <div class="modal-overlay" id="modal5" role="dialog" aria-modal="true" aria-label="Résumé : Expérience">
+        <div class="modal-box">
+            <button class="modal-close" aria-label="Fermer">&#x2715;</button>
+            <div class="modal-header">
+                <img src="images/expérience.png" alt="" class="modal-cover">
+                <div class="modal-title-block">
+                    <span class="modal-label">Résumé</span>
+                    <h2 class="modal-title">Expérience</h2>
+                </div>
+            </div>
+            <div class="modal-divider"></div>
+            <div class="modal-body">
+                <p>"Quand la réalité s'efface, seuls l'amitié et le courage peuvent ouvrir les portes du multivers. Osez l'expérience !"</p>
+                <p>Lucas, un jeune homme en quête de sens, perd son oncle Sam. Lors de l'enterrement, sa mère lui remet une enveloppe scellée contenant un message codé. Avec son ami Éric, il se lance dans une aventure captivante à travers des mondes inconnus et des époques révolues.</p>
+                <p>Chaque indice les rapproche d'une vérité incroyable, tout en les entraînant vers des dangers inattendus. Résoudre des énigmes et franchir des portails temporels, c'est découvrir que l'amitié, le courage et la curiosité sont les clés de l'inconnu. "Expérience" vous plonge au cœur du multivers, où chaque choix peut changer le cours de l'histoire. Prêts à déchiffrer le mystère ? L'aventure commence ici…</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL 6 -->
+    <div class="modal-overlay" id="modal6" role="dialog" aria-modal="true" aria-label="Résumé : Enseigner en saignant">
+        <div class="modal-box">
+            <button class="modal-close" aria-label="Fermer">&#x2715;</button>
+            <div class="modal-header">
+                <img src="images/enseigner_en_saignant.png" alt="" class="modal-cover">
+                <div class="modal-title-block">
+                    <span class="modal-label">Résumé</span>
+                    <h2 class="modal-title">Enseigner en saignant</h2>
+                </div>
+            </div>
+            <div class="modal-divider"></div>
+            <div class="modal-body">
+                <p>"Un mystère à résoudre, des vies à sauver : l'angoisse s'invite dans la salle de classe."</p>
+                <p>Bryan, un adolescent aux prises avec des troubles psychiatriques exacerbés par la perte de sa mère, consulte un psychiatre pour se sentir mieux. Dans ce monde déjà chaotique, la tension monte lorsqu'une élève du lycée Camille Claudel disparaît mystérieusement.</p>
+                <p>De son côté, Léonie Alvarez, jeune professeure d'espagnol fraîchement diplômée, se prépare à vivre sa première rentrée scolaire. Mais l'ombre de cette disparition plane sur son nouveau départ et la communauté scolaire est en émoi.</p>
+                <p>Lorsque la vie de Bryan et Léonie s'entremêle, l'inspecteur Martin est appelé à mener l'enquête. Au fil des révélations, les secrets enfouis resurgissent, et chaque indice les rapproche d'une vérité troublante. "Enseigner en saignant" est un thriller haletant où la psychologie et le mystère se rencontrent, plongeant les lecteurs dans une atmosphère où chaque personnage cache des facettes obscures.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL 7 -->
+    <div class="modal-overlay" id="modal7" role="dialog" aria-modal="true" aria-label="Résumé : A la mémoire du crime">
+        <div class="modal-box">
+            <button class="modal-close" aria-label="Fermer">&#x2715;</button>
+            <div class="modal-header">
+                <img src="images/mémoire_du_crime.png" alt="" class="modal-cover">
+                <div class="modal-title-block">
+                    <span class="modal-label">Résumé</span>
+                    <h2 class="modal-title">A la mémoire du crime</h2>
+                </div>
+            </div>
+            <div class="modal-divider"></div>
+            <div class="modal-body">
+                <p>"Quand la mémoire s'efface, la quête de la vérité devient un acte d'amour."</p>
+                <p>John et Dolorès Keating sont des grands-parents épanouis, profitant de chaque instant passé dans leur jardin et auprès de leurs petits-enfants. Mais leur bonheur s'effondre lorsque John reçoit un diagnostic dévastateur : la maladie d'Alzheimer. Peu après, un drame encore plus terrible se produit : Dolorès est retrouvée morte aux pieds de son escalier.</p>
+                <p>Pour l'inspecteur Martin, l'enquête commence, mais il doit faire face à un dilemme cruel : s'agit-il d'un accident tragique ou d'un meurtre sordide ? Alors que les indices se multiplient, John, convaincu que sa femme a été poussée, décide de mener sa propre enquête.</p>
+                <p>Dans une course contre la montre, le déclin de la santé mentale de John et la recherche de la vérité s'entremêlent, mettant en lumière les profondeurs de l'amour, du chagrin et de la trahison. "À la mémoire du crime" est un thriller poignant qui vous plongera dans un mystère captivant, où chaque révélation pourrait changer le cours de l'histoire.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL 8 -->
+    <div class="modal-overlay" id="modal8" role="dialog" aria-modal="true" aria-label="Résumé : Folie de vivre">
+        <div class="modal-box">
+            <button class="modal-close" aria-label="Fermer">&#x2715;</button>
+            <div class="modal-header">
+                <img src="images/folie_de_vivre.jpg" alt="" class="modal-cover">
+                <div class="modal-title-block">
+                    <span class="modal-label">Résumé</span>
+                    <h2 class="modal-title">Folie de vivre</h2>
+                </div>
+            </div>
+            <div class="modal-divider"></div>
+            <div class="modal-body">
+                <p>"Accusée du meurtre qu'elle doit résoudre, sa seule échappatoire est la folie... à moins qu'elle ne soit la vérité."</p>
+                <p>L'inspecteur Martin s'apprête à tirer sa révérence, laissant derrière lui une carrière exemplaire et un poste promis à sa brillante sergente, Esther Bracamonte. Mais le jour de son départ à la retraite, le destin bascule dans l'horreur. L'impensable se produit : l'inspecteur est retrouvé assassiné. Et l'accusation tombe, implacable, sur celle qui devait lui succéder : Esther Bracamonte.</p>
+                <p>Jetée derrière les barreaux, Esther se retrouve prise au piège d'un système qu'elle a toujours servi. Confrontée à la brutalité du monde carcéral, elle doit désormais lutter pour sa survie, non seulement contre les murs qui l'enserrent, mais aussi contre la folie qui menace de l'engloutir.</p>
+                <p>Mais au plus profond de son désespoir, une question insidieuse commence à la hanter : et si, dans un acte de folie indicible, elle était réellement l'auteure de ce crime ? Plongez dans un thriller psychologique où la vérité est une illusion, l'innocence une prison, et la folie, la seule issue.</p>
+            </div>
+        </div>
+    </div>
+
     <footer id="footer">
         <div class="social-buttons">
             <a class="social-btn facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdaniglesias-bloglitteraire.com%2F" target="_blank" rel="noopener noreferrer" aria-label="Partager sur Facebook">
@@ -221,8 +593,6 @@
                         <stop offset="1" stop-color="#16528c"></stop>
                     </linearGradient>
                     <path fill="url(#grad)" d="M42,40c0,1.105-0.895,2-2,2H8c-1.105,0-2-0.895-2-2V8c0-1.105,0.895-2,2-2h32 c1.105,0,2,0.895,2,2V40z"></path>
-                    <path d="M25,38V27h-4v-6h4v-2.138c0-5.042,2.666-7.818,7.505-7.818c1.995,0,3.077,0.14,3.598,0.208 l0.858,0.111L37,12.224L37,17h-3.635C32.237,17,32,18.378,32,19.535V21h4.723l-0.928,6H32v11H25z" opacity=".05"></path>
-                    <path d="M25.5,37.5v-11h-4v-5h4v-2.638c0-4.788,2.422-7.318,7.005-7.318c1.971,0,3.03,0.138,3.54,0.204 l0.436,0.057l0.02,0.442V16.5h-3.135c-1.623,0-1.865,1.901-1.865,3.035V21.5h4.64l-0.773,5H31.5v11H25.5z" opacity=".07"></path>
                     <path fill="#fff" d="M33.365,16H36v-3.754c-0.492-0.064-1.531-0.203-3.495-0.203c-4.101,0-6.505,2.08-6.505,6.819V22h-4v4 h4v11h5V26h3.938l0.618-4H31v-2.465C31,17.661,31.612,16,33.365,16z"></path>
                 </svg>
             </a>
@@ -246,6 +616,7 @@
     </footer>
 
     <script>
+        /* ---- SCROLL BUTTONS ---- */
         document.getElementById('scrollTop').addEventListener('click', () => {
             window.scrollTo({ top: 0, behavior: 'auto' });
         });
@@ -255,8 +626,9 @@
     </script>
 
     <script>
+        /* ---- MENU BURGER ---- */
         document.addEventListener('DOMContentLoaded', () => {
-            const burger = document.getElementById('burger');
+            const burger     = document.getElementById('burger');
             const menuDrawer = document.getElementById('menuDrawer');
             const closeCross = document.getElementById('closeCross');
 
@@ -282,5 +654,49 @@
             });
         });
     </script>
+
+    <script>
+        /* ---- MODALES ---- */
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // Ouvrir
+            document.querySelectorAll('.btn-resume').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const targetId = btn.getAttribute('data-modal');
+                    const overlay  = document.getElementById(targetId);
+                    if (!overlay) return;
+                    overlay.classList.add('open');
+                    document.body.style.overflow = 'hidden'; // bloquer le scroll page
+                    // focus sur la boîte pour accessibilité
+                    overlay.querySelector('.modal-box').focus?.();
+                });
+            });
+
+            // Fermer via bouton ×
+            document.querySelectorAll('.modal-close').forEach(btn => {
+                btn.addEventListener('click', closeAll);
+            });
+
+            // Fermer en cliquant l'overlay (en dehors de la boîte)
+            document.querySelectorAll('.modal-overlay').forEach(overlay => {
+                overlay.addEventListener('click', (e) => {
+                    if (e.target === overlay) closeAll();
+                });
+            });
+
+            // Fermer avec Échap
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') closeAll();
+            });
+
+            function closeAll() {
+                document.querySelectorAll('.modal-overlay.open').forEach(o => {
+                    o.classList.remove('open');
+                });
+                document.body.style.overflow = '';
+            }
+        });
+    </script>
+
 </body>
 </html>

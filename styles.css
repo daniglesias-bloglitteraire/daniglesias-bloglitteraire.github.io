@@ -197,7 +197,11 @@ ul.submenu li a:hover {
 
 /* Description ou texte associé à l'élément */
 .description {
-    text-align: justify; /* Justification pour une lecture plus élégante */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
 }
 
 /* Titre dans la description */
@@ -499,6 +503,26 @@ a {
     justify-items: center;
     margin: 0 auto;
     max-width: 1200px;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+/* Tablette : 2 colonnes */
+@media (max-width: 900px) and (min-width: 601px) {
+    .livres-alignées {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 700px;
+        padding: 0 16px;
+    }
+}
+
+/* Mobile : 1 colonne */
+@media (max-width: 600px) {
+    .livres-alignées {
+        grid-template-columns: 1fr;
+        padding: 0 16px;
+        gap: 16px;
+    }
 }
 
 /* Grille de livres */
@@ -784,6 +808,8 @@ a {
     /* Grille livres mobile (alignée) */
     .livres-alignées {
         grid-template-columns: 1fr;
+        padding: 0 16px;
+        gap: 16px;
     }
 
     /* Ajustements intro mobile */
